@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyh.lixue.mapper.SearchMapper">
-    <select id="searchProblem" parameterType="String">
-        select * from problem where title like #{name}
+    <select id="searchProblem" parameterType="String" resultType="Problem">
+        select * from prohub where title like #{name}
     </select>
 
 </mapper>

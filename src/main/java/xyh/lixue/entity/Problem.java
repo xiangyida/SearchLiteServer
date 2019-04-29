@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import sun.rmi.runtime.Log;
 
 @Data
-@Slf4j
 public class Problem {
     //题目id
     private int problemId;
