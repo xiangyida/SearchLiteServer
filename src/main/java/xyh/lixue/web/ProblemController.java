@@ -24,7 +24,7 @@ public class ProblemController {
 
     @RequestMapping("/search/{title}")
     public List<Problem>searchProblem(@PathVariable String title){
-       log.info("================>");
+       log.info("=");
         return service.searchProble(title);
 
     }

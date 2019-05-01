@@ -3,9 +3,11 @@ package xyh.lixue.entity;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.elasticsearch.annotations.Document;
 import sun.rmi.runtime.Log;
 
 @Data
+@Document(indexName = "lixue",type = "problem")
 public class Problem {
     //题目id
     private int problemId;

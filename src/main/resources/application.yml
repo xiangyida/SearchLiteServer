@@ -11,7 +11,12 @@ spring:
     restart:
       enabled: true
       additional-paths: src/main/java
-      exclude: static/**,public/**
+      poll-interval: 300ms
+      quiet-period: 299ms
+      exclude: application.yml
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9200
 server:
   servlet:
     context-path: /lixue
