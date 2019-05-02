@@ -16,7 +16,7 @@ spring:
       exclude: application.yml
   data:
     elasticsearch:
-      cluster-name: elasticsearch
+      cluster-name: lixue
       cluster-nodes: 127.0.0.1:9300
       repositories:
         enabled: true

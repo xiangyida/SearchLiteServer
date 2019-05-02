@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class Problem implements Serializable {
     //题目id
     @Id
-    private Integer problemId;
+    private String problemId;
     //知识点
     private String knowledgePoint;
     //题目标题
