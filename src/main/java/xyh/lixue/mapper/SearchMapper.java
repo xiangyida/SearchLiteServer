@@ -10,5 +10,6 @@ import java.util.List;
 @Component
 public interface SearchMapper {
     public List<Problem>searchProblem(@Param("name") String name);
-    public  boolean insert(Problem problem);
+
+    public List<Problem>getAll();
 }

@@ -2,15 +2,18 @@ package xyh.lixue.entity;
 
 
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
-import sun.rmi.runtime.Log;
+
+
+import java.io.Serializable;
 
 @Data
 @Document(indexName = "lixue",type = "problem")
-public class Problem {
+public class Problem implements Serializable {
     //题目id
-    private int problemId;
+    @Id
+    private Integer problemId;
     //知识点
     private String knowledgePoint;
     //题目标题

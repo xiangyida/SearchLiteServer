@@ -9,18 +9,23 @@ spring:
     host: 127.0.0.1
   devtools:
     restart:
-      enabled: true
+      enabled: false
       additional-paths: src/main/java
       poll-interval: 300ms
       quiet-period: 299ms
       exclude: application.yml
   data:
     elasticsearch:
-      cluster-nodes: 127.0.0.1:9200
+      cluster-name: elasticsearch
+      cluster-nodes: 127.0.0.1:9300
+      repositories:
+        enabled: true
 server:
   servlet:
     context-path: /lixue
 mybatis:
   type-aliases-package: xyh.lixue.entity
+  configuration:
+    map-underscore-to-camel-case: true
 
 

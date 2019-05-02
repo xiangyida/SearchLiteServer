@@ -23,7 +23,12 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     @Override
-    public List<Problem> searchProble(String title) {
-       return searchMapper.searchProblem(title);
+    public List<Problem> searchProblem(String title) {
+        return null;
+    }
+
+    @Override
+    public List<Problem> getAll() {
+        return searchMapper.getAll();
     }
 }

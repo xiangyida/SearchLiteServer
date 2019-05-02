@@ -12,7 +12,14 @@ public interface ProblemService {
      * @param title  标题
      * @return 题目
      */
-    List<Problem> searchProble(String title);
+    List<Problem> searchProblem(String title);
+
+    /**
+     * 得到所有的题目
+     * @return
+     */
+    List<Problem> getAll();
+
 
 
 }
