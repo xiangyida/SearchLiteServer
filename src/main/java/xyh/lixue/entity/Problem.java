@@ -4,6 +4,8 @@ package xyh.lixue.entity;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 
 import java.io.Serializable;
@@ -15,10 +17,13 @@ public class Problem implements Serializable {
     @Id
     private String problemId;
     //知识点
+    @Field(type = FieldType.Text,analyzer = "ik_max_word")
     private String knowledgePoint;
     //题目标题
+    @Field(type = FieldType.Text,analyzer = "ik_max_word")
     private String title;
     //出版社
+    @Field(type = FieldType.Text,analyzer = "ik_max_word")
     private String publish;
     //题目图片名字
     private String problemPictureName;

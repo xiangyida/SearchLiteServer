@@ -11,6 +11,7 @@ import xyh.lixue.entity.Problem;
 import xyh.lixue.service.ProblemRepository;
 import xyh.lixue.service.ProblemService;
 
+import java.util.Iterator;
 import java.util.List;
 
 @RestController
@@ -28,17 +29,17 @@ public class ProblemController {
 
     @RequestMapping("/search/{title}")
     public List<Problem>searchProblem(@PathVariable String title){
-       log.info("=");
-        return service.searchProblem(title);
+       return problemRepository.findProblemsByTitleOrKnowledgePointOrPublish(title);
     }
 
     @GetMapping("/transfer")
     public void transfer(){
        List<Problem> list=service.getAll();
-       for(Problem problem:list){
-           log.info(" save--------->  "+problem.getTitle());
-           problemRepository.save(problem);
-       }
+//       for(Problem problem:list){
+//           log.info(" save--------->  "+problem.getTitle());
+//           problemRepository.save(problem);
+//       }
+        log.info("--------->"+problemRepository.count());
     }
 
 }
