@@ -1,4 +1,4 @@
-package xyh.common.utils.ocr;
+package xyh.common.utils;
 
 /**
  * Base64 工具类

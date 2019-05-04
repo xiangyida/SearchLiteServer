@@ -1,4 +1,4 @@
-package xyh.common.utils.ocr;
+package xyh.common.utils;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
