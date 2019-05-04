@@ -16,14 +16,13 @@ public class Problem implements Serializable {
     //题目id
     @Id
     private String problemId;
-    //知识点
-    @Field(type = FieldType.Text,analyzer = "ik_max_word")
+    @Field(type = FieldType.Text, searchAnalyzer = "ik_max_word", analyzer = "ik_max_word")
     private String knowledgePoint;
     //题目标题
-    @Field(type = FieldType.Text,analyzer = "ik_max_word")
+    @Field(type = FieldType.Text, searchAnalyzer = "ik_max_word", analyzer = "ik_max_word")
     private String title;
     //出版社
-    @Field(type = FieldType.Text,analyzer = "ik_max_word")
+    @Field(type = FieldType.Text, searchAnalyzer = "ik_max_word", analyzer = "ik_max_word")
     private String publish;
     //题目图片名字
     private String problemPictureName;

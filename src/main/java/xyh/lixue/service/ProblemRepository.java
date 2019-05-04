@@ -8,5 +8,6 @@ import java.util.List;
 
 @Component
 public interface ProblemRepository extends ElasticsearchRepository<Problem,String> {
-    List<Problem> findProblemsByTitleOrKnowledgePointOrPublish(String keyword);
+    List<Problem> findProblemsByTitleOrKnowledgePointOrPublish(String title,String c,String b);
+    List<Problem> findProblemByTitle(String title);
 }
