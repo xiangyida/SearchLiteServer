@@ -27,7 +27,7 @@ public class LixueException {
     @ResponseBody
     @ExceptionHandler(NullPointerException.class)
     public ApiResult myException2(NullPointerException e){
-       log.error(e.getMessage());
+        e.printStackTrace();
        return ResultUtil.failed(ResultEnum.NULL_POINTER_ERR);
     }
 }

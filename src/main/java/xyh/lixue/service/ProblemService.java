@@ -1,6 +1,5 @@
 package xyh.lixue.service;
 
-import org.springframework.stereotype.Service;
 import xyh.lixue.entity.Problem;
 
 import java.util.List;
@@ -12,14 +11,15 @@ public interface ProblemService {
      * @param title  标题
      * @return 题目
      */
-    List<Problem> searchProblem(String title);
+    List<Problem> searchProblemByString(String title);
+
 
     /**
-     * 得到所有的题目
-     * @return
+     * 拍照搜题
+     * @param imageData 图片的byte[]
+     * @return 题
      */
-    List<Problem> getAll();
-
+    List<Problem> searchProblemByPicture(byte[] imageData);
 
 
 }
