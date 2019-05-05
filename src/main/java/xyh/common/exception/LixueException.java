@@ -1,6 +1,7 @@
 package xyh.common.exception;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,8 +18,8 @@ import xyh.common.result.ResultUtil;
 @Slf4j
 public class LixueException {
     //未知错误
-    @ExceptionHandler(Exception.class)
-    public ApiResult myException(Exception ex){
+    @ExceptionHandler(Throwable.class)
+    public ApiResult myException(Throwable ex){
        log.error(ex.getMessage());
        return ResultUtil.failed();
     }

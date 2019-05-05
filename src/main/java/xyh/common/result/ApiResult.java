@@ -15,5 +15,5 @@ public class ApiResult<E> {
     private String msg;
 
     //数据
-    private E e;
+    private E data;
 }

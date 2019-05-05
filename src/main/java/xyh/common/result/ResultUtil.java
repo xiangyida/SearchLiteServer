@@ -20,7 +20,7 @@ public class ResultUtil{
         ApiResult<T> apiResult=new ApiResult<>();
         apiResult.setCode(ResultEnum.SUCCSEE.getCode());
         apiResult.setMsg(ResultEnum.SUCCSEE.getMsg());
-        apiResult.setE(t);
+        apiResult.setData(t);
         return apiResult;
     }
 
@@ -28,7 +28,7 @@ public class ResultUtil{
         ApiResult<T> apiResult=new ApiResult<>();
         apiResult.setCode(resultEnum.getCode());
         apiResult.setMsg(resultEnum.getMsg());
-        apiResult.setE(t);
+        apiResult.setData(t);
         return apiResult;
     }
 

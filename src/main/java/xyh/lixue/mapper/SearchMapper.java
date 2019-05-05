@@ -9,7 +9,5 @@ import java.util.List;
 
 @Component
 public interface SearchMapper {
-    public List<Problem>searchProblem(@Param("name") String name);
-
     public List<Problem>getAll();
 }

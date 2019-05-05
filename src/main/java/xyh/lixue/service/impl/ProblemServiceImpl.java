@@ -48,7 +48,7 @@ public class ProblemServiceImpl implements ProblemService {
         QueryBuilder queryBuilder=new MatchQueryBuilder("title",title);
         Page<Problem> page = problemRepository.search(queryBuilder, PageRequest.of(0, 5));
         List list=new ArrayList();
-        page.forEach(problem->{list.add(problem);});
+        page.forEach(problem->list.add(problem));
         return list;
     }
 

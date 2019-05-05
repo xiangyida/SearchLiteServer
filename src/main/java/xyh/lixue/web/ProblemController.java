@@ -5,10 +5,7 @@ import org.elasticsearch.index.query.MatchAllQueryBuilder;
 import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import xyh.common.result.ApiResult;
 import xyh.common.result.ResultUtil;
@@ -40,7 +37,7 @@ public class ProblemController {
     }
 
     @RequestMapping("/searchByPicture")
-    public ApiResult<List<Problem>> searchByPicture(MultipartFile file) throws IOException {
+    public ApiResult<List<Problem>> searchByPicture(@RequestParam(value = "file")MultipartFile file) throws IOException {
         return ResultUtil.success(problemService.searchProblemByPicture(file.getBytes()));
     }
 

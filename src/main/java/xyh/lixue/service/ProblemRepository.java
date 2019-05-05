@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import xyh.lixue.entity.Problem;
 
 
+
 @Component
 public interface ProblemRepository extends ElasticsearchRepository<Problem,String> {
 
