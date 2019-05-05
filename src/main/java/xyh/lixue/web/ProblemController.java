@@ -9,10 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import xyh.common.result.ApiResult;
+import xyh.common.result.ResultUtil;
 import xyh.lixue.entity.Problem;
 import xyh.lixue.service.ProblemRepository;
 import xyh.lixue.service.ProblemService;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -21,33 +26,22 @@ import java.util.List;
 @RequestMapping("/problem")
 @Slf4j
 public class ProblemController {
-    private ProblemService service;
-    private ProblemRepository problemRepository;
+
+    private ProblemService problemService;
 
     @Autowired
-    public ProblemController(ProblemService service, ProblemRepository problemRepository) {
-        this.service = service;
-        this.problemRepository = problemRepository;
-
+    public ProblemController(ProblemService problemService) {
+        this.problemService=problemService;
     }
 
-    @RequestMapping("/search")
-    public List<Problem> searchProblem() {
-        return problemRepository.findProblemsByTitleOrKnowledgePointOrPublish("景荣春","title","1");
-    }
-    @RequestMapping("/search1/{title}")
-    public List<Problem> searchProblem1(@PathVariable String title) {
-        Iterable<Problem> iterable=problemRepository.search(new MatchQueryBuilder("title",title));
-        List list=new ArrayList();
-        iterable.forEach(problem->{list.add(problem);});
-        return list;
+    @RequestMapping("/searchByString/{title}")
+    public ApiResult<List<Problem>> searchByString(@PathVariable String title) {
+       return ResultUtil.success(problemService.searchProblemByString(title));
     }
 
-    @GetMapping("/transfer")
-    public void transfer() {
-        List<Problem> list = service.getAll();
-        problemRepository.saveAll(list);
-        log.info("--------->" + problemRepository.count());
+    @RequestMapping("/searchByPicture")
+    public ApiResult<List<Problem>> searchByPicture(MultipartFile file) throws IOException {
+        return ResultUtil.success(problemService.searchProblemByPicture(file.getBytes()));
     }
 
 }
