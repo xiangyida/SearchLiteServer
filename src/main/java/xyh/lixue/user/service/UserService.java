@@ -36,4 +36,17 @@ public interface UserService {
      */
     List<PPT> getPPT();
 
+    /**
+     * 记录搜题
+     * @param searchRecords
+     */
+    void  recordSearch(SearchRecords searchRecords);
+
+    /**
+     * 记录用户登录
+     * @param userId userId
+     *
+     */
+    void recordLogin(String userId);
+
 }

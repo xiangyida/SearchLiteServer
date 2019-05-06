@@ -1,6 +1,8 @@
 package xyh.lixue.user.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
+import xyh.lixue.user.entity.LoginRecords;
 import xyh.lixue.user.entity.PPT;
 import xyh.lixue.user.entity.Push;
 import xyh.lixue.user.entity.SearchRecords;
@@ -17,7 +19,11 @@ public interface UserMapper {
     //得到推送的HTML相关
     List<Push> getPush();
     //得到搜索记录
-    List<SearchRecords> getSearchRecords(String userId);
+    List<SearchRecords> getSearchRecords(@Param("userId") String userId);
     //得到ppt
     List<PPT> getPPT();
+    //插入搜索记录
+    void insertSearchRecords(@Param("searchRecords") SearchRecords searchRecords);
+    //插入登录记录
+    void insertLoginRecords(@Param("userId") String userId);
 }

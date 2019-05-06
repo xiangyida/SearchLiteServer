@@ -40,15 +40,27 @@ public class UserController {
         return ResultUtil.success(userService.getSearchRecords(userId));
     }
 
-    @RequestMapping("/pushs")
+    @RequestMapping("/push")
     public ApiResult<List<Push>>getPush(){
         return ResultUtil.success(userService.pushHtml());
     }
 
-    @RequestMapping("/openId/{code}")
-    public ApiResult<String> getOpenId(@PathVariable String code){
-        return ResultUtil.success(userService.getOpenId(code));
+    @RequestMapping("/login/{code}")
+    public ApiResult<String> login(@PathVariable String code){
+        String userId=userService.getOpenId(code);
+        userService.recordLogin(userId);
+        return ResultUtil.success(userId);
     }
+
+    @RequestMapping("/recordSearch")
+    public ApiResult recordSearch(String userId,String problemId){
+        SearchRecords searchRecords=new SearchRecords();
+        searchRecords.setUserId(userId);
+        searchRecords.setProblemId(problemId);
+        userService.recordSearch(searchRecords);
+        return ResultUtil.success();
+    }
+
 
 
 }

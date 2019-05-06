@@ -50,4 +50,14 @@ public class UserServiceImpl implements UserService {
     public List<PPT> getPPT() {
         return userMapper.getPPT();
     }
+
+    @Override
+    public void recordSearch(SearchRecords searchRecords) {
+        userMapper.insertSearchRecords(searchRecords);
+    }
+
+    @Override
+    public void recordLogin(String userId) {
+        userMapper.insertLoginRecords(userId);
+    }
 }
