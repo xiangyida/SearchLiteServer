@@ -9,7 +9,7 @@
     </insert>
     <insert id="insertLoginRecords">
         insert into login_records (user_id)
-        values #{userId}
+        values (#{userId})
     </insert>
     <insert id="insertUser">
         insert into user (id, name)

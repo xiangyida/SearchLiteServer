@@ -36,6 +36,6 @@ public class KnowledgeFrameworkServiceImpl implements KnowledgeFrameworkService 
 
     @Override
     public List<Knowledge> getKnowledgeByChapterId(String chapterId) {
-        return getKnowledgeByChapterId(chapterId);
+        return knowledgeMapper.getKnowledgeByChapterId(chapterId);
     }
 }

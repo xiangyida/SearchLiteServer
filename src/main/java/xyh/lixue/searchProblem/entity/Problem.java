@@ -19,6 +19,7 @@ public class Problem implements Serializable {
     //题目id
     @Id
     private String id;
+    @Field(type = FieldType.Text, searchAnalyzer = "ik_smart", analyzer = "ik_max_word")
     private String knowledgePoint;
     //题目标题
     @Field(type = FieldType.Text, searchAnalyzer = "ik_smart", analyzer = "ik_max_word")

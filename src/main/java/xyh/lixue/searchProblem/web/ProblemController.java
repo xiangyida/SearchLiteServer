@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 import xyh.lixue.common.result.ApiResult;
 import xyh.lixue.common.result.ResultUtil;
 import xyh.lixue.searchProblem.entity.Problem;
+import xyh.lixue.searchProblem.service.ProblemRepository;
 import xyh.lixue.searchProblem.service.ProblemService;
 
 import java.io.IOException;
@@ -43,5 +44,6 @@ public class ProblemController {
         problemService.transfer();
         return ResultUtil.success();
     }
+
 
 }
