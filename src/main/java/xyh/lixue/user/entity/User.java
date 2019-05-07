@@ -1,6 +1,7 @@
 package xyh.lixue.user.entity;
 
 import lombok.Data;
+import xyh.lixue.common.RootEntity;
 
 import java.io.Serializable;
 
@@ -10,11 +11,11 @@ import java.io.Serializable;
  * 用户
  */
 @Data
-public class User implements Serializable {
+public class User implements Serializable, RootEntity {
     //用户的openId
-    private String userId;
+    private String id;
     //用户名
-    private String userName;
+    private String name;
     //注册时间
     private String time;
 

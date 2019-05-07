@@ -2,10 +2,7 @@ package xyh.lixue.user.mapper;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
-import xyh.lixue.user.entity.LoginRecords;
-import xyh.lixue.user.entity.PPT;
-import xyh.lixue.user.entity.Push;
-import xyh.lixue.user.entity.SearchRecords;
+import xyh.lixue.user.entity.*;
 
 
 import java.util.List;
@@ -26,4 +23,6 @@ public interface UserMapper {
     void insertSearchRecords(@Param("searchRecords") SearchRecords searchRecords);
     //插入登录记录
     void insertLoginRecords(@Param("userId") String userId);
+    //获取user表中所有的记录
+    List<User> getAllUser();
 }

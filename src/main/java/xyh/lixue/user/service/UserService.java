@@ -49,4 +49,9 @@ public interface UserService {
      */
     void recordLogin(String userId);
 
+    /**
+     * 将用户表中的数据加载到redis中
+     */
+    void importUserToRedis();
+
 }

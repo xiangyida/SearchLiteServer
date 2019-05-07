@@ -24,4 +24,7 @@
         select *
         from ppt
     </select>
+    <select id="getAllUser" resultType="xyh.lixue.user.entity.User">
+        select * from user
+    </select>
 </mapper>
