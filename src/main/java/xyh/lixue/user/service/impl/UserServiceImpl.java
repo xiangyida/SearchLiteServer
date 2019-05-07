@@ -1,5 +1,6 @@
 package xyh.lixue.user.service.impl;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -49,7 +50,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public String getOpenId(String code) {
        String url=this.url+code;
-       return HttpUtil.get(url);
+       String json=HttpUtil.get(url);
+       JSONObject jsonObject = new JSONObject(json);
+       return jsonObject.getString("openid");
     }
 
     @Override
