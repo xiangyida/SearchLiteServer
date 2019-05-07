@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import xyh.lixue.common.enums.SearchTypeEnum;
 import xyh.lixue.common.result.ApiResult;
 import xyh.lixue.common.result.ResultUtil;
 import xyh.lixue.searchProblem.entity.Problem;
@@ -27,7 +28,7 @@ public class ProblemController {
 
     @RequestMapping("/searchByString/{title}")
     public ApiResult<List<Problem>> searchByString(@PathVariable String title) {
-       return ResultUtil.success(problemService.searchProblemByString(title));
+       return ResultUtil.success(problemService.searchProblemByString(SearchTypeEnum.TITLE,title));
     }
 
     @RequestMapping("/searchByPicture")

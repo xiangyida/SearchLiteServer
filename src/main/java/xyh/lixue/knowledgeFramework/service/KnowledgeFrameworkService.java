@@ -31,4 +31,5 @@ public interface KnowledgeFrameworkService {
      * @return knowledge
      */
     public List<Knowledge>getKnowledgeByChapterId(String chapterId);
+
 }

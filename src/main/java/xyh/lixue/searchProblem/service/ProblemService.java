@@ -1,5 +1,7 @@
 package xyh.lixue.searchProblem.service;
 
+import org.elasticsearch.action.search.SearchType;
+import xyh.lixue.common.enums.SearchTypeEnum;
 import xyh.lixue.searchProblem.entity.Problem;
 
 import java.util.List;
@@ -11,7 +13,7 @@ public interface ProblemService {
      * @param title  标题
      * @return 题目
      */
-    List<Problem> searchProblemByString(String title);
+    List<Problem> searchProblemByString(SearchTypeEnum typeEnum,String title);
 
 
     /**
@@ -25,6 +27,7 @@ public interface ProblemService {
      * 将MySQL中的数据导入到elasticsearch中
      */
     void transfer();
+
 
 
 }

@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import xyh.lixue.common.enums.SearchTypeEnum;
 import xyh.lixue.common.utils.Base64Util;
 import xyh.lixue.common.utils.GetToken;
 import xyh.lixue.common.utils.HttpUtil;
@@ -47,8 +48,8 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     @Override
-    public List<Problem> searchProblemByString(String title) {
-        QueryBuilder queryBuilder = new MatchQueryBuilder("title", title);
+    public List<Problem> searchProblemByString(SearchTypeEnum typeEnum,String title) {
+        QueryBuilder queryBuilder = new MatchQueryBuilder(typeEnum.getType(), title);
         Page<Problem> page = problemRepository.search(queryBuilder, PageRequest.of(0, 5));
         List list = new ArrayList();
         page.forEach(problem -> list.add(problem));
@@ -57,13 +58,14 @@ public class ProblemServiceImpl implements ProblemService {
 
     @Override
     public List<Problem> searchProblemByPicture(byte[] imageData) {
-        return searchProblemByString(getString(ocr(imageData)));
+        return searchProblemByString(SearchTypeEnum.TITLE,getString(ocr(imageData)));
     }
 
     @Override
     public void transfer() {
         problemRepository.saveAll(searchMapper.getAll());
     }
+
 
     /**
      * 传入图片的字节数组，调用百度api返回识别后的json
