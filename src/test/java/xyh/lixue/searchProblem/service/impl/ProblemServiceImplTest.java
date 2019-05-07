@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+import xyh.lixue.common.enums.SearchTypeEnum;
 import xyh.lixue.searchProblem.service.ProblemService;
 
 import static org.junit.Assert.*;
@@ -23,6 +24,8 @@ public class ProblemServiceImplTest {
 
     @Test
     public void searchProblemByString() {
+        problemService.searchProblemByString(SearchTypeEnum.KNOWLEDGEPOINT,"应力");
+        problemService.searchProblemByString(SearchTypeEnum.TITLE,"杠杆");
     }
 
     @Test

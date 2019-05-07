@@ -75,6 +75,7 @@ public class HttpUtil {
         return result;
     }
     public static String get(String string) {
+
         try {
             URL url=new URL(string);
             HttpURLConnection connection=(HttpURLConnection) url.openConnection();
@@ -86,6 +87,7 @@ public class HttpUtil {
                 sb.append("\r\n");
             }
             reader.close();
+            System.out.println(sb.toString());
             return sb.toString();
 
         } catch (Exception e) {

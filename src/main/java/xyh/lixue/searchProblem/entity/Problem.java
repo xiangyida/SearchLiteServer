@@ -2,6 +2,8 @@ package xyh.lixue.searchProblem.entity;
 
 
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
@@ -15,7 +17,10 @@ import java.io.Serializable;
  */
 @Data
 @Document(indexName = "lixue",type = "problem")
+@PropertySource("classpath:lixue.properties")
 public class Problem implements Serializable {
+    @Value("${ocr.ui}")
+    private final String ocrUri;
     //题目id
     @Id
     private String id;
@@ -32,5 +37,13 @@ public class Problem implements Serializable {
     private String answerPictureName;
     //热度
     private int hotPoint;
+
+    public void setProblemPictureName(String problemPictureName){
+        this.problemPictureName=ocrUri+problemPictureName;
+    }
+
+    public void setAnswerPictureName(String answerPictureName){
+        this.answerPictureName=ocrUri+answerPictureName;
+    }
 
 }
