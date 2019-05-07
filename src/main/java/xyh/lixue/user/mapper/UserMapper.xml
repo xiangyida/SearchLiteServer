@@ -8,7 +8,12 @@
         VALUES (#{searchRecords.userId}, #{searchRecords.problemId})
     </insert>
     <insert id="insertLoginRecords">
-        insert into login_records (user_id) values #{userId}
+        insert into login_records (user_id)
+        values #{userId}
+    </insert>
+    <insert id="insertUser">
+        insert into user (id, name)
+        VALUES (#{user.getId}, #{user.getName})
     </insert>
 
     <select id="getPush" resultType="xyh.lixue.user.entity.Push">
@@ -25,6 +30,7 @@
         from ppt
     </select>
     <select id="getAllUser" resultType="xyh.lixue.user.entity.User">
-        select * from user
+        select *
+        from user
     </select>
 </mapper>

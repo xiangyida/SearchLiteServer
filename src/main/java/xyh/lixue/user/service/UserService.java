@@ -45,12 +45,12 @@ public interface UserService {
     /**
      * 记录用户登录
      * @param userId userId
-     *
      */
     void recordLogin(String userId);
 
     /**
      * 将用户表中的数据加载到redis中
+     * 在启动完成后系统会调用
      */
     void importUserToRedis();
 

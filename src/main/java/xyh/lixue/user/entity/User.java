@@ -11,7 +11,7 @@ import java.io.Serializable;
  * 用户
  */
 @Data
-public class User implements Serializable, RootEntity {
+public class User implements Serializable{
     //用户的openId
     private String id;
     //用户名

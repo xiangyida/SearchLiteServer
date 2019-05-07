@@ -26,9 +26,13 @@ public class LixueApplication implements CommandLineRunner {
 
     }
 
+    /**
+     * 在启动完成后将mysql的user表中的数据导入redis中
+     * @param args none
+     * @throws Exception none
+     */
     @Override
     public void run(String... args) throws Exception {
-
         userService.importUserToRedis();
         log.info("------> has imported users from mysql to redis");
     }

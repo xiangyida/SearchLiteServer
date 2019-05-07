@@ -30,12 +30,14 @@ public class LixueRedisConfig {
 //    }
 
     @Bean
-    public RedisTemplate<String,User> userRedisTemplate1(RedisConnectionFactory factory){
+    public RedisTemplate<String,User> RedisTemplate(RedisConnectionFactory factory){
+
         RedisTemplate<String,User>template=new RedisTemplate<>();
         //关联
         template.setConnectionFactory(factory);
         //设置key的序列化器
         template.setKeySerializer(new StringRedisSerializer());
+        //设置hashKey的序列化
         template.setHashKeySerializer(new StringRedisSerializer());
         //设置value的序列化器
         template.setHashValueSerializer(new Jackson2JsonRedisSerializer<>(User.class));

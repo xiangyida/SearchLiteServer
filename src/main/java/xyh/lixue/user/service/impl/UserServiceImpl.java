@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
     private RedisTemplate<String, User> redisTemplate;
     @Autowired
-    public UserServiceImpl(UserMapper userMapper,RedisTemplate redisTemplate){
+    public UserServiceImpl(UserMapper userMapper,RedisTemplate<String,User> redisTemplate){
         this.redisTemplate=redisTemplate;
         this.userMapper=userMapper;
     }
@@ -64,6 +64,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void recordLogin(String userId) {
+        HashOperations<String,String,User> hashOperations=redisTemplate.opsForHash();
+        //查询用户是否为新用户
+        if(null==hashOperations.get("user",userId)){
+            User user=new User();
+            user.setId(userId);
+            //添加到redis中
+            hashOperations.put("user",userId,user);
+            //添加到mysql中
+            userMapper.insertUser(user);
+        }
         userMapper.insertLoginRecords(userId);
     }
 
@@ -72,10 +82,7 @@ public class UserServiceImpl implements UserService {
         HashOperations<String,String,User> hashOperations=redisTemplate.opsForHash();
         List<User> list=userMapper.getAllUser();
         Map<String,User>map=new HashMap<>();
-        list.forEach(user->{
-            map.put(user.getId(),user);
-            System.out.println(user.toString());
-        });
+        list.forEach(user->map.put(user.getId(),user));
         hashOperations.putAll("user",map);
     }
 }

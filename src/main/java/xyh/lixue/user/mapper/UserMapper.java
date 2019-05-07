@@ -25,4 +25,6 @@ public interface UserMapper {
     void insertLoginRecords(@Param("userId") String userId);
     //获取user表中所有的记录
     List<User> getAllUser();
+    //向用户表中添加数据
+    void insertUser(@Param("user") User user);
 }
