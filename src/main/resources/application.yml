@@ -19,6 +19,10 @@ spring:
       cluster-nodes: 123.207.11.229:9300
       repositories:
         enabled: true
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: lixue
   servlet:
     multipart:
       max-file-size: 10MB
