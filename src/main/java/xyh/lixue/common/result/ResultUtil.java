@@ -31,6 +31,13 @@ public class ResultUtil{
         apiResult.setData(t);
         return apiResult;
     }
+    public static <T> ApiResult<T> success(T t,String msg){
+        ApiResult<T> apiResult=new ApiResult<>();
+        apiResult.setCode(ResultEnum.SUCCSEE.getCode());
+        apiResult.setMsg(msg);
+        apiResult.setData(t);
+        return apiResult;
+    }
 
     //fail
     public static ApiResult failed(){

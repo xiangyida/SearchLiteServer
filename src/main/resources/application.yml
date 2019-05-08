@@ -9,7 +9,7 @@ spring:
     host: 127.0.0.1
   devtools:
     restart:
-      enabled: true
+      enabled: false
       additional-paths: src/main/java
       poll-interval: 300ms
       quiet-period: 299ms
@@ -31,3 +31,6 @@ mybatis:
   type-aliases-package: xyh.lixue.searchProblem.entity
   configuration:
     map-underscore-to-camel-case: true
+logging:
+  level:
+    xyh.lixue.searchProblem: debug
