@@ -7,13 +7,15 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.cache.CacheProperties;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.data.redis.core.RedisTemplate;
 import xyh.lixue.user.service.UserService;
 
 @SpringBootApplication
 @MapperScan("xyh.lixue.*.mapper")
 @Slf4j
-public class LixueApplication implements CommandLineRunner {
+public class LixueApplication extends SpringBootServletInitializer implements CommandLineRunner {
 
     UserService userService;
     @Autowired
@@ -35,5 +37,10 @@ public class LixueApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         userService.importUserToRedis();
         log.info("------> has imported users from mysql to redis");
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(LixueApplication.class);
     }
 }

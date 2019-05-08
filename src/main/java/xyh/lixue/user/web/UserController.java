@@ -29,7 +29,7 @@ public class UserController {
 
     private UserService userService;
 
-    @Value("${cos.uil}")
+    @Value("${cos.uri}")
     private String cosUri;
     @Autowired
     public UserController(UserService userService){
