@@ -53,6 +53,8 @@ public class UserServiceImpl implements UserService {
        String json=HttpUtil.get(url);
        JSONObject jsonObject = new JSONObject(json);
        return jsonObject.getString("openid");
+        //use by test
+        //return "openId";
     }
 
     @Override

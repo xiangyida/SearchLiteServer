@@ -33,23 +33,24 @@ public class KnowledgeFrameworkController {
     }
 
     @RequestMapping("/books")
-    public List<Book> getBooks(){
-        return knowledgeFrameworkService.getAllBooks();
+    public ApiResult<List<Book>> getBooks(){
+
+        return ResultUtil.success(knowledgeFrameworkService.getAllBooks());
     }
 
     @RequestMapping("/chapters/{bookId}")
-    public List<Chapter>getChapters(@PathVariable String bookId){
-        return knowledgeFrameworkService.getChaptersByBookId(bookId);
+    public ApiResult<List<Chapter>>getChapters(@PathVariable String bookId){
+        return ResultUtil.success(knowledgeFrameworkService.getChaptersByBookId(bookId));
     }
 
     @RequestMapping("/knowledge/{chapterId}")
-    public List<Knowledge>getKnowledge(@PathVariable String chapterId){
-        return knowledgeFrameworkService.getKnowledgeByChapterId(chapterId);
+    public ApiResult<List<Knowledge>>getKnowledge(@PathVariable String chapterId){
+        return ResultUtil.success(knowledgeFrameworkService.getKnowledgeByChapterId(chapterId));
     }
 
     @RequestMapping("/problems/{knowledge}")
-    public List<Problem>getProblem(@PathVariable String knowledge){
-        return problemService.searchProblemByString(SearchTypeEnum.KNOWLEDGEPOINT,knowledge);
+    public ApiResult<List<Problem>>getProblem(@PathVariable String knowledge){
+        return ResultUtil.success(problemService.searchProblemByString(SearchTypeEnum.KNOWLEDGEPOINT,knowledge));
     }
 
 }
