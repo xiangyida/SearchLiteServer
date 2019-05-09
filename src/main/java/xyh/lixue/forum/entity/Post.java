@@ -3,6 +3,7 @@ package xyh.lixue.forum.entity;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 
@@ -18,10 +19,12 @@ public class Post implements Serializable {
     @Id
     private String id;
     //发帖人的userId
+    @Field("user_id")
     private String userId;
     //内容
     private String content;
     //浏览量
+    @Field("page_view")
     private Integer pageView;
     //发帖时间
     private String time;
