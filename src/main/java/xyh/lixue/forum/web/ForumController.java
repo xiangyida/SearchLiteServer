@@ -8,7 +8,6 @@ import xyh.lixue.common.result.ApiResult;
 import xyh.lixue.common.result.ResultUtil;
 import xyh.lixue.forum.entity.Post;
 import xyh.lixue.forum.service.ForumService;
-
 import java.util.List;
 
 /**
@@ -33,16 +32,9 @@ public class ForumController {
     }
 
     @RequestMapping("/posting")
-    public ApiResult posting(){
-        Post post=new Post();
-        post.setId("1");
-        post.setPageView(100);
-        post.setContent("hello");
-        post.setUserId("xiangyida");
-        post.setTime("now");
+    public ApiResult posting(Post post){
         forumService.posting(post);
         return ResultUtil.success();
-
     }
 
 
