@@ -55,6 +55,27 @@ public interface ForumService {
      */
     public List<Post>getPostByUserId(String userId);
 
+    /**
+     * 根据postId得到post
+     * @param postId id
+     * @return post
+     */
+    public Post getPostById(String postId);
+
+    /**
+     * 根据id得到reply
+     * @param replyId id
+     * @return reply
+     */
+    public Reply getReplyById(String replyId);
+
+    /**
+     * 根据用户id得到评论
+     * @param userId userid
+     * @return list
+     */
+    public List<Reply> getRepliesByUserId(String userId);
+
 
 
 }

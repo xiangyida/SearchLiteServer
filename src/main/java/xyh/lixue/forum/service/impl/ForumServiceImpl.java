@@ -1,6 +1,7 @@
 package xyh.lixue.forum.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -27,13 +28,16 @@ public class ForumServiceImpl implements ForumService {
 
     @Override
     public List<Post> getAllPost() {
-        return mongoTemplate.findAll(Post.class);
+        Query query = new Query();
+        query.with(new Sort(new Sort.Order(Sort.Direction.DESC,"time")));
+        return mongoTemplate.find(query,Post.class);
     }
 
     @Override
     public List<Reply> getReplyByPostId(String postId) {
         Criteria criteria = Criteria.where("post_id").is(postId);
         Query query = Query.query(criteria);
+        query.with(new Sort(new Sort.Order(Sort.Direction.DESC,"time")));
         return mongoTemplate.find(query, Reply.class);
     }
 
@@ -53,6 +57,9 @@ public class ForumServiceImpl implements ForumService {
         Criteria criteria = Criteria.where("id").is(postId);
         Query query = Query.query(criteria);
         mongoTemplate.remove(query, Post.class);
+        //同时删除帖子下面的评论
+        query=Query.query(Criteria.where("post_id").is(postId));
+        mongoTemplate.remove(query,Reply.class);
 
     }
 
@@ -68,5 +75,22 @@ public class ForumServiceImpl implements ForumService {
         Criteria criteria = Criteria.where("user_id").is(userId);
         Query query = Query.query(criteria);
         return mongoTemplate.find(query, Post.class);
+    }
+
+    @Override
+    public Post getPostById(String postId) {
+        return  mongoTemplate.findById(postId,Post.class);
+    }
+
+    @Override
+    public Reply getReplyById(String replyId) {
+        return mongoTemplate.findById(replyId,Reply.class);
+    }
+
+    @Override
+    public List<Reply> getRepliesByUserId(String userId) {
+        Criteria criteria = Criteria.where("user_id").is(userId);
+        Query query = Query.query(criteria);
+        return mongoTemplate.find(query, Reply.class);
     }
 }

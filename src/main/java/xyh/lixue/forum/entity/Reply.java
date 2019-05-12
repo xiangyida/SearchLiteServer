@@ -27,5 +27,7 @@ public class Reply implements Serializable {
     //评论内容
     private String content;
     //点赞数量
-    private Integer praise;
+    private Integer praise=0;
+    //评论时间
+    private long time;
 }

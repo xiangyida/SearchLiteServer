@@ -25,8 +25,8 @@ public class Post implements Serializable {
     private String content;
     //浏览量
     @Field("page_view")
-    private Integer pageView;
+    private Integer pageView=0;
     //发帖时间
-    private String time;
+    private long time;
     //暂时先不考虑图片，后面再迭代
 }
