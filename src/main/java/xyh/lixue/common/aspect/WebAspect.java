@@ -21,7 +21,7 @@ public class WebAspect {
 
     ThreadLocal<Long> threadLocal=new ThreadLocal<>();
 
-    @Pointcut("execution(public * xyh.*.web.*.*(..))")
+    @Pointcut("execution(public * xyh.lixue.*.web.*.*(..))")
     public void print() {
     }
 
