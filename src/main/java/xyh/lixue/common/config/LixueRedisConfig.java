@@ -6,10 +6,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import xyh.lixue.common.RootEntity;
 import xyh.lixue.user.entity.User;
-
-import javax.jws.soap.SOAPBinding;
 
 /**
  * @author XiangYida

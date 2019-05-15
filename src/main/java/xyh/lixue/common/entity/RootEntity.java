@@ -1,4 +1,4 @@
-package xyh.lixue.common;
+package xyh.lixue.common.entity;
 
 /**
  * @author XiangYida

@@ -23,7 +23,6 @@ import java.util.Map;
  * @version 2019/5/6 19:18
  */
 @Service
-@PropertySource("classpath:lixue.properties")
 public class UserServiceImpl implements UserService {
     @Value("${wechat.url}")
     private String url;

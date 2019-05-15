@@ -15,7 +15,6 @@ import java.io.Serializable;
  */
 
 @Document(indexName = "lixue",type = "problem")
-@PropertySource("classpath:lixue.properties")
 @Data
 public class Problem implements Serializable {
     //题目id

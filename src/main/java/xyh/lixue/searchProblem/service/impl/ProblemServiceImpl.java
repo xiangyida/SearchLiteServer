@@ -30,7 +30,6 @@ import java.util.concurrent.TimeUnit;
  * @version 2019/4/29 10:15
  */
 @Service
-@PropertySource("classpath:lixue.properties")
 @Slf4j
 public class ProblemServiceImpl implements ProblemService {
 
@@ -41,7 +40,7 @@ public class ProblemServiceImpl implements ProblemService {
     private SearchMapper searchMapper;
 
     @Autowired
-    public ProblemServiceImpl(RedisTemplate redisTemplate, ProblemRepository problemRepository, SearchMapper searchMapper) {
+    public ProblemServiceImpl(RedisTemplate<String, String> redisTemplate, ProblemRepository problemRepository, SearchMapper searchMapper) {
         this.redisTemplate = redisTemplate;
         this.problemRepository = problemRepository;
         this.searchMapper = searchMapper;
@@ -51,8 +50,11 @@ public class ProblemServiceImpl implements ProblemService {
     public List<Problem> searchProblemByString(SearchTypeEnum typeEnum,String title) {
         QueryBuilder queryBuilder = new MatchQueryBuilder(typeEnum.getType(), title);
         Page<Problem> page = problemRepository.search(queryBuilder, PageRequest.of(0, 5));
-        List list = new ArrayList();
-        page.forEach(problem -> list.add(problem));
+        List<Problem> list = new ArrayList<>();
+        //page.forEach(problem -> list.add(problem));
+        for (Problem problem:page){
+            list.add(problem);
+        }
         return list;
     }
 
@@ -73,7 +75,7 @@ public class ProblemServiceImpl implements ProblemService {
      * @param imgData 图片的字节数组
      * @return 识别后的json
      */
-    public String ocr(byte[] imgData) {
+    private String ocr(byte[] imgData) {
         try {
             String imgStr = Base64Util.encode(imgData);
             String params = URLEncoder.encode("image", "UTF-8") + "=" + URLEncoder.encode(imgStr, "UTF-8");
@@ -89,10 +91,10 @@ public class ProblemServiceImpl implements ProblemService {
     /**
      * 解析百度返回的json得到前几个字符
      *
-     * @param json
-     * @return
+     * @param json json
+     * @return string
      */
-    public String getString(String json) {
+    private String getString(String json) {
         JSONObject jsonObject = new JSONObject(json);
         JSONArray jsonArray = jsonObject.getJSONArray("words_result");
         String str = (String) jsonArray.getJSONObject(0).get("words");
@@ -105,7 +107,7 @@ public class ProblemServiceImpl implements ProblemService {
      *
      * @return accessToken
      */
-    public String setAccessToken() {
+    private String setAccessToken() {
         String accessToken = GetToken.getAuth();
         redisTemplate.opsForValue().set("ACCESS_TOKEN", accessToken);
         //设置29天后失效
@@ -118,7 +120,7 @@ public class ProblemServiceImpl implements ProblemService {
      *
      * @return AccessToken
      */
-    public String getAccessToken() {
+    private String getAccessToken() {
         String accessToken = redisTemplate.opsForValue().get("ACCESS_TOKEN");
         //过期后重新获取
         if (accessToken == null) return this.setAccessToken();

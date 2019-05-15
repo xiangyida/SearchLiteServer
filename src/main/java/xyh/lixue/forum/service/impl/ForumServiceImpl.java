@@ -29,7 +29,7 @@ public class ForumServiceImpl implements ForumService {
     @Override
     public List<Post> getAllPost() {
         Query query = new Query();
-        query.with(new Sort(new Sort.Order(Sort.Direction.DESC,"time")));
+        //query.with(new Sort(new Sort.Order(Sort.Direction.DESC,"time")));
         return mongoTemplate.find(query,Post.class);
     }
 
@@ -37,7 +37,7 @@ public class ForumServiceImpl implements ForumService {
     public List<Reply> getReplyByPostId(String postId) {
         Criteria criteria = Criteria.where("post_id").is(postId);
         Query query = Query.query(criteria);
-        query.with(new Sort(new Sort.Order(Sort.Direction.DESC,"time")));
+       // query.with(new Sort(new Sort.Order(Sort.Direction.DESC,"time")));
         return mongoTemplate.find(query, Reply.class);
     }
 

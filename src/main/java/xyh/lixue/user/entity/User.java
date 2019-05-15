@@ -1,7 +1,6 @@
 package xyh.lixue.user.entity;
 
 import lombok.Data;
-import xyh.lixue.common.RootEntity;
 
 import java.io.Serializable;
 

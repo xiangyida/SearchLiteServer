@@ -24,7 +24,6 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequestMapping("/user")
-@PropertySource("classpath:lixue.properties")
 public class UserController {
 
     private UserService userService;
