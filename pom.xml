@@ -17,7 +17,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <skipTests>true</skipTests>
+        <!--<skipTests>true</skipTests>-->
     </properties>
 
     <dependencies>
@@ -132,6 +132,13 @@
                 <directory>src/main/java/</directory>
                 <includes>
                     <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>*</include>
                 </includes>
                 <filtering>false</filtering>
             </resource>

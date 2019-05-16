@@ -17,7 +17,7 @@ import xyh.lixue.user.service.UserService;
 @Slf4j
 public class LixueApplication extends SpringBootServletInitializer implements CommandLineRunner {
 
-    UserService userService;
+    private UserService userService;
     @Autowired
     public LixueApplication(UserService userService){
         this.userService=userService;
@@ -27,7 +27,10 @@ public class LixueApplication extends SpringBootServletInitializer implements Co
         SpringApplication.run(LixueApplication.class, args);
 
     }
-
+        @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(LixueApplication.class);
+    }
     /**
      * 在启动完成后将mysql的user表中的数据导入redis中
      * @param args none
@@ -36,11 +39,6 @@ public class LixueApplication extends SpringBootServletInitializer implements Co
     @Override
     public void run(String... args) throws Exception {
         userService.importUserToRedis();
-        log.info("------> has imported users from mysql to redis");
     }
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(LixueApplication.class);
-    }
+    public LixueApplication(){};
 }
