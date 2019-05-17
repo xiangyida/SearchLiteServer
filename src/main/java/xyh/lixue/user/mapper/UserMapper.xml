@@ -11,9 +11,9 @@
         insert into login_records (user_id)
         values (#{userId})
     </insert>
-    <insert id="insertUser">
-        insert into user (id, name)
-        VALUES (#{user.getId}, #{user.getName})
+    <insert id="insertUser" parameterType="xyh.lixue.user.entity.User">
+        insert into `user` (id, name)
+        VALUES (#{user.id}, #{user.name})
     </insert>
 
     <select id="getPush" resultType="xyh.lixue.user.entity.Push">

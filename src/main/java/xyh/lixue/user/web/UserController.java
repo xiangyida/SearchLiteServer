@@ -52,10 +52,14 @@ public class UserController {
 
     @RequestMapping("/login/{code}")
     public ApiResult<LoginResult> login(@PathVariable String code){
+        //获取openid
         String userId=userService.getOpenId(code);
+        //记录登陆
         userService.recordLogin(userId);
         LoginResult loginResult=new LoginResult();
+        //返回用户的openId
         loginResult.setUserId(userId);
+        //返回云对象存储的uri，后面加装图片会用到
         loginResult.setCosUri(this.cosUri);
         return ResultUtil.success(loginResult);
     }
