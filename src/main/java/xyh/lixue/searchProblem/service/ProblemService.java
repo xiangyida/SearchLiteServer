@@ -28,6 +28,13 @@ public interface ProblemService {
      */
     void transfer();
 
+    /**
+     * 根据题目id返回题目
+     * @param id 题目id
+     * @return 题目
+     */
+    Problem getProblemById(String id);
+
 
 
 }

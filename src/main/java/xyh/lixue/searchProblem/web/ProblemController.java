@@ -46,5 +46,11 @@ public class ProblemController {
         return ResultUtil.success();
     }
 
+    @GetMapping("/{id}")
+    public ApiResult getProblemById(@PathVariable String id){
+        Problem problem=problemService.getProblemById(id);
+        return ResultUtil.success(problem);
+    }
+
 
 }

@@ -17,7 +17,7 @@ import xyh.lixue.common.result.ResultUtil;
 @Slf4j
 public class LixueException {
     //未知错误
-    @ExceptionHandler(Throwable.class)
+    @ExceptionHandler(Exception.class)
     public ApiResult myException(Throwable ex){
        log.error(ex.getMessage());
        return ResultUtil.failed();

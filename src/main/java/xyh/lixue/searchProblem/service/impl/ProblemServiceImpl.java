@@ -68,6 +68,11 @@ public class ProblemServiceImpl implements ProblemService {
         problemRepository.saveAll(searchMapper.getAll());
     }
 
+    @Override
+    public Problem getProblemById(String id) {
+        return searchMapper.getProblemById(id);
+    }
+
 
     /**
      * 传入图片的字节数组，调用百度api返回识别后的json
@@ -97,6 +102,7 @@ public class ProblemServiceImpl implements ProblemService {
     private String getString(String json) {
         JSONObject jsonObject = new JSONObject(json);
         JSONArray jsonArray = jsonObject.getJSONArray("words_result");
+        if(jsonArray.length()==0)return "";
         String str = (String) jsonArray.getJSONObject(0).get("words");
         log.info("get string from json------> " + str);
         return str;
