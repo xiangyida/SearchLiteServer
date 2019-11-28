@@ -66,13 +66,13 @@ public class ProblemServiceImpl implements ProblemService {
     @Override
     public void transfer() {
         problemRepository.saveAll(searchMapper.getAll());
+
     }
 
     @Override
     public Problem getProblemById(String id) {
         return searchMapper.getProblemById(id);
     }
-
 
     /**
      * 传入图片的字节数组，调用百度api返回识别后的json
