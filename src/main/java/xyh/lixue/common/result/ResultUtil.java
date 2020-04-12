@@ -1,6 +1,6 @@
 package xyh.lixue.common.result;
 
-import xyh.lixue.common.enums.ResultEnum;
+import xyh.common.enums.ResultEnum;
 
 /**
  * @author XiangYida

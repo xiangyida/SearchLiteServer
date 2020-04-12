@@ -8,7 +8,10 @@ public enum ResultEnum {
     UNKONW_ERROR(500, "内部错误"),
     SUCCSEE(200, "成功"),
     NULL_POINTER_ERR(501,"空指针异常"),
-    AUTHORITY_ERR(401,"权限错误");
+    AUTHORITY_ERR(401,"权限错误"),
+    TOKEN_ERROR(402,"token错误"),
+    TOKEN_NOT_FOUNT(403,"token not fount"),
+    PAGE_ERROR(406,"page out of size");
     private Integer code;
     private String msg;
 
