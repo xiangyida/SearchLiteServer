@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>xyh</groupId>
-    <artifactId>lixue</artifactId>
+    <artifactId>searchlite</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lixue</name>
+    <name>SearchLite</name>
     <packaging>war</packaging>
     <description>Demo project for Spring Boot</description>
 
@@ -147,7 +147,7 @@
                 <filtering>false</filtering>
             </resource>
         </resources>
-        <finalName>lixue</finalName>
+        <finalName>SearchLite</finalName>
     </build>
 
 </project>
