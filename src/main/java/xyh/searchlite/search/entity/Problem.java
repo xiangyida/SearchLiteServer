@@ -13,7 +13,7 @@ import java.io.Serializable;
  * 题目信息
  */
 
-@Document(indexName = "lixue",type = "problem")
+@Document(indexName = "searchlite",type = "problem")
 @Data
 public class Problem implements Serializable {
     //题目id
