@@ -6,12 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import xyh.searchlite.user.service.UserService;
 
 @SpringBootApplication
-@MapperScan("xyh.lixue.*.mapper")
+@MapperScan("xyh.searchlite.*.mapper")
 @Slf4j
 public class SearchLiteApplication implements CommandLineRunner {
 
@@ -34,5 +32,4 @@ public class SearchLiteApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         userService.importUserToRedis();
     }
-    public SearchLiteApplication(){};
 }

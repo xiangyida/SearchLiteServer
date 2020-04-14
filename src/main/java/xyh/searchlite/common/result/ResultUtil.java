@@ -1,6 +1,6 @@
 package xyh.searchlite.common.result;
 
-import xyh.common.enums.ResultEnum;
+import xyh.searchlite.common.enums.ResultEnum;
 
 /**
  * @author XiangYida

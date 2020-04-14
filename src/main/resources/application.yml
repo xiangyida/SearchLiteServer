@@ -1,15 +1,15 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/lixue?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://127.0.0.1:3306/search_lite?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 123456
   redis:
     host: 127.0.0.1
   data:
     elasticsearch:
-      cluster-name: lixue
-      cluster-nodes: 123.207.11.229:9300
+      cluster-name: docker-cluster
+      cluster-nodes: 127.0.0.1:9300
       repositories:
         enabled: true
 server:
