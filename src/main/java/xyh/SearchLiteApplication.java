@@ -13,21 +13,17 @@ import xyh.searchlite.user.service.UserService;
 @SpringBootApplication
 @MapperScan("xyh.lixue.*.mapper")
 @Slf4j
-public class LixueApplication extends SpringBootServletInitializer implements CommandLineRunner {
+public class SearchLiteApplication implements CommandLineRunner {
 
     private UserService userService;
     @Autowired
-    public LixueApplication(UserService userService){
+    public SearchLiteApplication(UserService userService){
         this.userService=userService;
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(LixueApplication.class, args);
+        SpringApplication.run(SearchLiteApplication.class, args);
 
-    }
-        @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(LixueApplication.class);
     }
     /**
      * 在启动完成后将mysql的user表中的数据导入redis中
@@ -38,5 +34,5 @@ public class LixueApplication extends SpringBootServletInitializer implements Co
     public void run(String... args) throws Exception {
         userService.importUserToRedis();
     }
-    public LixueApplication(){};
+    public SearchLiteApplication(){};
 }
