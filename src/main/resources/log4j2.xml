@@ -1,0 +1,102 @@
+<Configuration status="INFO" monitorInterval="30">
+    <Properties>
+        <!--  日志文件输出路径  -->
+        <Property name="logPath">logs</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="[%d][%-5p][%t] %m (%F:%L)%n"/>
+        </Console>
+
+        <RollingFile name="debug" fileName="${logPath}/debug/blog_debug.log"
+                     filePattern="${logPath}/debug/blog_debug_%d{yyyy-MM-dd}-%i.log">
+            <Filters>
+                <ThresholdFilter level="info" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="[%d][%-5p][%t] %m (%F:%L)%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="24" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50 MB"/>\
+            </Policies>
+            <DefaultRolloverStrategy max="30">
+                <Delete basePath="${logPath}/debug" maxDepth="1">
+                    <IfFileName glob="blog_debug_*.log"/>
+                    <IfLastModified age="15d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <RollingFile name="info" fileName="${logPath}/info/blog_info.log"
+                     filePattern="${logPath}/info/blog_info_%d{yyyy-MM-dd}-%i.log">
+            <Filters>
+                <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="[%d][%-5p][%t] %m (%F:%L)%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="24" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50 MB"/>\
+            </Policies>
+            <DefaultRolloverStrategy max="30">
+                <Delete basePath="${logPath}/info" maxDepth="1">
+                    <IfFileName glob="blog_info_*.log"/>
+                    <IfLastModified age="15d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <RollingFile name="warn" fileName="${logPath}/warn/blog_warn.log"
+                     filePattern="${logPath}/warn/blog_warn_%d{yyyy-MM-dd}-%i.log">
+            <Filters>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="[%d][%-5p][%t] %m (%F:%L)%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="24" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50 MB"/>\
+            </Policies>
+            <DefaultRolloverStrategy max="30">
+                <Delete basePath="${logPath}/warn" maxDepth="1">
+                    <IfFileName glob="blog_warn_*.log"/>
+                    <IfLastModified age="15d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <RollingFile name="error" fileName="${logPath}/error/blog_error.log"
+                     filePattern="${logPath}/error/blog_error_%d{yyyy-MM-dd}-%i.log">
+            <Filters>
+                <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="[%d][%-5p][%t] %m (%F:%L)%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="24" modulate="true"/>
+                <!--   每个文件最大50M -->
+                <SizeBasedTriggeringPolicy size="50 MB"/>\
+            </Policies>
+            <DefaultRolloverStrategy max="30">
+                <Delete basePath="${logPath}/error" maxDepth="1">
+                    <IfFileName glob="blog_error_*.log"/>
+                    <!-- 设置最大保存时间为15天-->
+                    <IfLastModified age="15d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+    </Appenders>
+    <!--切换输出级别-->
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="debug"/>
+            <AppenderRef ref="info"/>
+            <AppenderRef ref="warn"/>
+            <AppenderRef ref="error"/>
+        </Root>
+    </Loggers>
+</Configuration>

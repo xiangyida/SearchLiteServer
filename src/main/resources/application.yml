@@ -17,12 +17,12 @@ server:
     context-path: /searchlite
   port: 8080
 mybatis:
-  type-aliases-package: xyh.lixue.searchProblem.entity
   configuration:
     map-underscore-to-camel-case: true
 logging:
+  config: classpath:log4j2.xml
   level:
-    xyh.lixue.*: debug
+    xyh.*.*: debug
 
 ocr:
   api: https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic
