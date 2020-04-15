@@ -88,6 +88,29 @@ services:
     networks:
       searchlite_net:
         ipv4_address: 172.12.35.31
+  jobmanager:
+    image: flink:1.9.2
+    container_name: flink-jobmanager-searchlite
+    expose:
+      - "6123"
+    ports:
+      - "8081:8081"
+    command: jobmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+  taskmanager:
+    image: flink:1.9.2
+    container_name: flink-taskmanager-searchlite
+    expose:
+      - "6121"
+      - "6122"
+    depends_on:
+      - jobmanager
+    command: taskmanager
+    links:
+      - "jobmanager:jobmanager"
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
 networks:
   searchlite_net:
     external: true
