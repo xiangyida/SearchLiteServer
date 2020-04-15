@@ -88,3 +88,8 @@
 [2020-04-14 15:53:39,245][WARN ][elasticsearch[_client_][generic][T#4]] node {#transport#-1}{EQGeVozGSNSwsKOEmxe41Q}{127.0.0.1}{127.0.0.1:9300} not part of the cluster Cluster [elasticsearch], ignoring... (TransportClientNodesService.java:423)
 [2020-04-14 15:53:44,266][WARN ][elasticsearch[_client_][generic][T#1]] node {#transport#-1}{EQGeVozGSNSwsKOEmxe41Q}{127.0.0.1}{127.0.0.1:9300} not part of the cluster Cluster [elasticsearch], ignoring... (TransportClientNodesService.java:423)
 [2020-04-14 15:53:54,159][WARN ][main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. (DriverDataSource.java:68)
+[2020-04-15 14:55:36,709][WARN ][main] node {#transport#-1}{hOTCJyZDQOOf2CtPj-bF_A}{127.0.0.1}{127.0.0.1:9300} not part of the cluster Cluster [docker-cluster], ignoring... (TransportClientNodesService.java:423)
+[2020-04-15 14:55:37,937][WARN ][main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. (DriverDataSource.java:68)
+[2020-04-15 14:56:24,488][WARN ][main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. (DriverDataSource.java:68)
+[2020-04-15 15:06:53,449][WARN ][main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. (DriverDataSource.java:68)
+[2020-04-15 15:19:44,456][WARN ][main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. (DriverDataSource.java:68)

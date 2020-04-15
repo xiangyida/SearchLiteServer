@@ -8,7 +8,7 @@ spring:
     host: 127.0.0.1
   data:
     elasticsearch:
-      cluster-name: docker-cluster
+      cluster-name: es-searchlite
       cluster-nodes: 127.0.0.1:9300
       repositories:
         enabled: true

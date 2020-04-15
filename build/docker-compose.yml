@@ -13,6 +13,9 @@ services:
     image: mysql:latest
     container_name: mysql-searchlite
     hostname: mysql_host
+    volumes:
+      - /Users/xiangyida/docker/mysql/data:/var/lib/mysql
+      - /Users/xiangyida/docker/mysql/config:/etc/mysql/conf.d
     networks:
       searchlite_net:
         ipv4_address: 172.12.35.3
@@ -25,16 +28,14 @@ services:
     container_name: elasticseaerch-searchlite
     networks:
       - searchlite_net
-    #volumes:
-     # - /Users/xiangyida/docker/es/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-     # - /Users/xiangyida/docker/es/data:/usr/share/elasticsearch/data
-     # - /etc/timezone:/etc/timezone
-     # - /etc/localtime:/etc/localtime
+    volumes:
+      - /Users/xiangyida/docker/es/plugins:/usr/share/elasticsearch/plugins
+      - /Users/xiangyida/docker/es/data:/usr/share/elasticsearch/data
     restart: always
-    # command: ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.8.4/elasticsearch-analysis-ik-6.8.4.zip
     environment:
-      ES_CLUSTERNAME: elasticsearch
-      ES_JAVA_OPTS: -Xmx512m -Xms512m
+      - node.name=es-1
+      - cluster.name=es-searchlite
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ports:
       - 9200:9200
       - 9300:9300
