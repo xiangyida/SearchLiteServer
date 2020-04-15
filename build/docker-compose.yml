@@ -6,7 +6,7 @@ services:
     hostname: redis_host
     networks:
       searchlite_net:
-        ipv4_address: 172.12.35.2
+        ipv4_address: 172.12.35.8
     ports:
       - 6379:6379
   db:
@@ -60,6 +60,9 @@ services:
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=zk1:2888:3888
+#    volumes:
+#      - /etc/timezone:/etc/timezone
+#      - /etc/localtime:/etc/localtime
     networks:
       searchlite_net:
         ipv4_address: 172.12.35.21

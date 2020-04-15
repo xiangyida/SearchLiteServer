@@ -343,3 +343,136 @@ Error starting ApplicationContext. To display the conditions report re-run your 
 [2020-04-15 15:19:44,427][INFO ][main] Started SearchLiteApplication in 4.739 seconds (JVM running for 5.715) (StartupInfoLogger.java:59)
 [2020-04-15 15:19:44,451][INFO ][main] HikariPool-1 - Starting... (HikariDataSource.java:110)
 [2020-04-15 15:19:44,762][INFO ][main] HikariPool-1 - Start completed. (HikariDataSource.java:123)
+[2020-04-15 15:20:50,183][INFO ][Thread-3] Shutting down ExecutorService 'applicationTaskExecutor' (ExecutorConfigurationSupport.java:208)
+[2020-04-15 15:20:50,197][INFO ][Thread-3] HikariPool-1 - Shutdown initiated... (HikariDataSource.java:350)
+[2020-04-15 15:20:50,209][INFO ][Thread-3] HikariPool-1 - Shutdown completed. (HikariDataSource.java:352)
+[2020-04-15 17:47:46,967][INFO ][main] Starting SearchLiteApplication on Mac.local with PID 15380 (/Users/xiangyida/code/java/SearchLite/target/classes started by xiangyida in /Users/xiangyida/code/java/SearchLite) (StartupInfoLogger.java:50)
+[2020-04-15 17:47:46,976][INFO ][main] No active profile set, falling back to default profiles: default (SpringApplication.java:675)
+[2020-04-15 17:47:47,652][INFO ][main] Multiple Spring Data modules found, entering strict repository configuration mode! (RepositoryConfigurationDelegate.java:244)
+[2020-04-15 17:47:47,657][INFO ][main] Bootstrapping Spring Data repositories in DEFAULT mode. (RepositoryConfigurationDelegate.java:126)
+[2020-04-15 17:47:47,729][INFO ][main] Finished Spring Data repository scanning in 68ms. Found 1 repository interfaces. (RepositoryConfigurationDelegate.java:182)
+[2020-04-15 17:47:47,742][INFO ][main] Multiple Spring Data modules found, entering strict repository configuration mode! (RepositoryConfigurationDelegate.java:244)
+[2020-04-15 17:47:47,743][INFO ][main] Bootstrapping Spring Data repositories in DEFAULT mode. (RepositoryConfigurationDelegate.java:126)
+[2020-04-15 17:47:47,764][INFO ][main] Spring Data Redis - Could not safely identify store assignment for repository candidate interface xyh.searchlite.search.service.ProblemRepository. (RepositoryConfigurationExtensionSupport.java:363)
+[2020-04-15 17:47:47,765][INFO ][main] Finished Spring Data repository scanning in 11ms. Found 0 repository interfaces. (RepositoryConfigurationDelegate.java:182)
+[2020-04-15 17:47:48,105][INFO ][main] Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$cd95b25a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) (PostProcessorRegistrationDelegate.java:330)
+[2020-04-15 17:47:48,191][INFO ][main] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f9e3a0d7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) (PostProcessorRegistrationDelegate.java:330)
+[2020-04-15 17:47:48,504][INFO ][main] Tomcat initialized with port(s): 8080 (http) (TomcatWebServer.java:90)
+[2020-04-15 17:47:48,519][INFO ][main] Initializing ProtocolHandler ["http-nio-8080"] (DirectJDKLog.java:173)
+[2020-04-15 17:47:48,529][INFO ][main] Starting service [Tomcat] (DirectJDKLog.java:173)
+[2020-04-15 17:47:48,529][INFO ][main] Starting Servlet engine: [Apache Tomcat/9.0.17] (DirectJDKLog.java:173)
+[2020-04-15 17:47:48,634][INFO ][main] Initializing Spring embedded WebApplicationContext (DirectJDKLog.java:173)
+[2020-04-15 17:47:48,634][INFO ][main] Root WebApplicationContext: initialization completed in 1616 ms (ServletWebServerApplicationContext.java:296)
+[2020-04-15 17:47:49,306][INFO ][main] no modules loaded (PluginsService.java:190)
+[2020-04-15 17:47:49,307][INFO ][main] loaded plugin [org.elasticsearch.index.reindex.ReindexPlugin] (PluginsService.java:193)
+[2020-04-15 17:47:49,308][INFO ][main] loaded plugin [org.elasticsearch.join.ParentJoinPlugin] (PluginsService.java:193)
+[2020-04-15 17:47:49,308][INFO ][main] loaded plugin [org.elasticsearch.percolator.PercolatorPlugin] (PluginsService.java:193)
+[2020-04-15 17:47:49,308][INFO ][main] loaded plugin [org.elasticsearch.script.mustache.MustachePlugin] (PluginsService.java:193)
+[2020-04-15 17:47:49,309][INFO ][main] loaded plugin [org.elasticsearch.transport.Netty4Plugin] (PluginsService.java:193)
+[2020-04-15 17:47:50,451][INFO ][main] Adding transport node : 127.0.0.1:9300 (TransportClientFactoryBean.java:88)
+[2020-04-15 17:47:51,133][INFO ][main] Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c2883b1, org.springframework.security.web.context.SecurityContextPersistenceFilter@f48a080, org.springframework.security.web.header.HeaderWriterFilter@16a09809, org.springframework.security.web.authentication.logout.LogoutFilter@78bad03b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2d47b06, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@252c6cdb, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@336e3be2, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3c544c9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@401ec794, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@277bc3a5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@126a9a3d, org.springframework.security.web.session.SessionManagementFilter@749d7c01, org.springframework.security.web.access.ExceptionTranslationFilter@dd20ebc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3e9fb485] (DefaultSecurityFilterChain.java:43)
+[2020-04-15 17:47:51,435][INFO ][main] Initializing ExecutorService 'applicationTaskExecutor' (ExecutorConfigurationSupport.java:171)
+[2020-04-15 17:47:52,080][INFO ][main] Starting ProtocolHandler ["http-nio-8080"] (DirectJDKLog.java:173)
+[2020-04-15 17:47:52,097][INFO ][main] Tomcat started on port(s): 8080 (http) with context path '/searchlite' (TomcatWebServer.java:204)
+[2020-04-15 17:47:52,100][INFO ][main] Started SearchLiteApplication in 5.549 seconds (JVM running for 6.648) (StartupInfoLogger.java:59)
+[2020-04-15 17:47:52,126][INFO ][main] HikariPool-1 - Starting... (HikariDataSource.java:110)
+[2020-04-15 17:47:53,196][INFO ][main] HikariPool-1 - Start completed. (HikariDataSource.java:123)
+[2020-04-15 17:48:25,055][INFO ][http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet' (DirectJDKLog.java:173)
+[2020-04-15 17:48:25,056][INFO ][http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet' (FrameworkServlet.java:524)
+[2020-04-15 17:48:25,065][INFO ][http-nio-8080-exec-1] Completed initialization in 9 ms (FrameworkServlet.java:546)
+[2020-04-15 17:48:25,095][INFO ][http-nio-8080-exec-1] URL: http://127.0.0.1:8080/searchlite/problem/searchByString/%E6%9D%A0%E6%9D%86 (SearchLiteInterceptor.java:24)
+[2020-04-15 17:48:25,096][INFO ][http-nio-8080-exec-1] IP: 127.0.0.1 (SearchLiteInterceptor.java:25)
+[2020-04-15 17:48:25,225][INFO ][http-nio-8080-exec-1] ProducerConfig values: 
+	acks = 1
+	batch.size = 16384
+	bootstrap.servers = [127.0.0.1:9092]
+	buffer.memory = 33554432
+	client.id = 
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 0
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = https
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+ (AbstractConfig.java:279)
+[2020-04-15 17:48:25,294][INFO ][http-nio-8080-exec-1] Kafka version : 2.0.1 (AppInfoParser.java:109)
+[2020-04-15 17:48:25,294][INFO ][http-nio-8080-exec-1] Kafka commitId : fa14705e51bd2ce5 (AppInfoParser.java:110)
+[2020-04-15 17:48:25,815][INFO ][kafka-producer-network-thread | producer-1] Cluster ID: 8GFlWr1OT-WOOrCd2Wp3qQ (Metadata.java:285)
+[2020-04-15 17:48:26,482][INFO ][http-nio-8080-exec-1] RequestTimeConsuming: 1387 ms (SearchLiteInterceptor.java:31)
+[2020-04-15 17:48:34,445][INFO ][http-nio-8080-exec-2] URL: http://127.0.0.1:8080/searchlite/problem/searchByString/%E5%BC%BA%E5%BA%A6%E8%AE%A1%E7%AE%97 (SearchLiteInterceptor.java:24)
+[2020-04-15 17:48:34,446][INFO ][http-nio-8080-exec-2] IP: 127.0.0.1 (SearchLiteInterceptor.java:25)
+[2020-04-15 17:48:34,474][INFO ][http-nio-8080-exec-2] RequestTimeConsuming: 29 ms (SearchLiteInterceptor.java:31)
+[2020-04-15 17:49:14,999][INFO ][http-nio-8080-exec-4] URL: http://127.0.0.1:8080/searchlite/problem/searchByString/%E5%BC%BA%E5%BA%A6%E8%AE%A1%E7%AE%97 (SearchLiteInterceptor.java:24)
+[2020-04-15 17:49:15,000][INFO ][http-nio-8080-exec-4] IP: 127.0.0.1 (SearchLiteInterceptor.java:25)
+[2020-04-15 17:49:15,017][INFO ][http-nio-8080-exec-4] RequestTimeConsuming: 18 ms (SearchLiteInterceptor.java:31)
+[2020-04-15 17:49:15,169][INFO ][http-nio-8080-exec-5] URL: http://127.0.0.1:8080/searchlite/problem/searchByString/%E5%BC%BA%E5%BA%A6%E8%AE%A1%E7%AE%97 (SearchLiteInterceptor.java:24)
+[2020-04-15 17:49:15,170][INFO ][http-nio-8080-exec-5] IP: 127.0.0.1 (SearchLiteInterceptor.java:25)
+[2020-04-15 17:49:15,192][INFO ][http-nio-8080-exec-5] RequestTimeConsuming: 23 ms (SearchLiteInterceptor.java:31)
+[2020-04-15 17:49:15,443][INFO ][http-nio-8080-exec-6] URL: http://127.0.0.1:8080/searchlite/problem/searchByString/%E5%BC%BA%E5%BA%A6%E8%AE%A1%E7%AE%97 (SearchLiteInterceptor.java:24)
+[2020-04-15 17:49:15,444][INFO ][http-nio-8080-exec-6] IP: 127.0.0.1 (SearchLiteInterceptor.java:25)
+[2020-04-15 17:49:15,459][INFO ][http-nio-8080-exec-6] RequestTimeConsuming: 16 ms (SearchLiteInterceptor.java:31)
+[2020-04-15 17:49:15,586][INFO ][http-nio-8080-exec-7] URL: http://127.0.0.1:8080/searchlite/problem/searchByString/%E5%BC%BA%E5%BA%A6%E8%AE%A1%E7%AE%97 (SearchLiteInterceptor.java:24)
+[2020-04-15 17:49:15,587][INFO ][http-nio-8080-exec-7] IP: 127.0.0.1 (SearchLiteInterceptor.java:25)
+[2020-04-15 17:49:15,599][INFO ][http-nio-8080-exec-7] RequestTimeConsuming: 13 ms (SearchLiteInterceptor.java:31)
+[2020-04-15 17:49:15,858][INFO ][http-nio-8080-exec-8] URL: http://127.0.0.1:8080/searchlite/problem/searchByString/%E5%BC%BA%E5%BA%A6%E8%AE%A1%E7%AE%97 (SearchLiteInterceptor.java:24)
+[2020-04-15 17:49:15,859][INFO ][http-nio-8080-exec-8] IP: 127.0.0.1 (SearchLiteInterceptor.java:25)
+[2020-04-15 17:49:15,875][INFO ][http-nio-8080-exec-8] RequestTimeConsuming: 17 ms (SearchLiteInterceptor.java:31)
+[2020-04-15 17:49:16,135][INFO ][http-nio-8080-exec-9] URL: http://127.0.0.1:8080/searchlite/problem/searchByString/%E5%BC%BA%E5%BA%A6%E8%AE%A1%E7%AE%97 (SearchLiteInterceptor.java:24)
+[2020-04-15 17:49:16,135][INFO ][http-nio-8080-exec-9] IP: 127.0.0.1 (SearchLiteInterceptor.java:25)
+[2020-04-15 17:49:16,149][INFO ][http-nio-8080-exec-9] RequestTimeConsuming: 14 ms (SearchLiteInterceptor.java:31)
+[2020-04-15 17:49:16,292][INFO ][http-nio-8080-exec-10] URL: http://127.0.0.1:8080/searchlite/problem/searchByString/%E5%BC%BA%E5%BA%A6%E8%AE%A1%E7%AE%97 (SearchLiteInterceptor.java:24)
+[2020-04-15 17:49:16,292][INFO ][http-nio-8080-exec-10] IP: 127.0.0.1 (SearchLiteInterceptor.java:25)
+[2020-04-15 17:49:16,309][INFO ][http-nio-8080-exec-10] RequestTimeConsuming: 18 ms (SearchLiteInterceptor.java:31)
+[2020-04-15 17:49:35,788][INFO ][Thread-3] Shutting down ExecutorService 'applicationTaskExecutor' (ExecutorConfigurationSupport.java:208)
+[2020-04-15 17:49:35,789][INFO ][Thread-3] [Producer clientId=producer-1] Closing the Kafka producer with timeoutMillis = 30000 ms. (KafkaProducer.java:1090)
+[2020-04-15 17:49:35,802][INFO ][Thread-3] HikariPool-1 - Shutdown initiated... (HikariDataSource.java:350)
+[2020-04-15 17:49:35,814][INFO ][Thread-3] HikariPool-1 - Shutdown completed. (HikariDataSource.java:352)

@@ -93,3 +93,8 @@
 [2020-04-15 14:56:24,488][WARN ][main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. (DriverDataSource.java:68)
 [2020-04-15 15:06:53,449][WARN ][main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. (DriverDataSource.java:68)
 [2020-04-15 15:19:44,456][WARN ][main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. (DriverDataSource.java:68)
+[2020-04-15 17:47:52,131][WARN ][main] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation. (DriverDataSource.java:68)
+[2020-04-15 17:48:25,815][WARN ][kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Error while fetching metadata with correlation id 1 : {search_data=LEADER_NOT_AVAILABLE} (NetworkClient.java:968)
+[2020-04-15 17:48:25,931][WARN ][kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Error while fetching metadata with correlation id 3 : {search_data=LEADER_NOT_AVAILABLE} (NetworkClient.java:968)
+[2020-04-15 17:48:26,042][WARN ][kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Error while fetching metadata with correlation id 4 : {search_data=LEADER_NOT_AVAILABLE} (NetworkClient.java:968)
+[2020-04-15 17:48:26,150][WARN ][kafka-producer-network-thread | producer-1] [Producer clientId=producer-1] Error while fetching metadata with correlation id 5 : {search_data=LEADER_NOT_AVAILABLE} (NetworkClient.java:968)

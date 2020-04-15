@@ -50,10 +50,7 @@ public class ProblemServiceImpl implements ProblemService {
         QueryBuilder queryBuilder = new MatchQueryBuilder(typeEnum.getType(), title);
         Page<Problem> page = problemRepository.search(queryBuilder, PageRequest.of(0, 5));
         List<Problem> list = new ArrayList<>();
-        //page.forEach(problem -> list.add(problem));
-        for (Problem problem:page){
-            list.add(problem);
-        }
+        page.forEach(list::add);
         return list;
     }
 

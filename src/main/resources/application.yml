@@ -6,12 +6,34 @@ spring:
     password: 123456
   redis:
     host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 500
+        min-idle: 0
+    lettuce:
+      shutdown-timeout: 0
   data:
     elasticsearch:
       cluster-name: es-searchlite
       cluster-nodes: 127.0.0.1:9300
       repositories:
         enabled: true
+  kafka:
+    listener:
+      missing-topics-fatal: false
+    bootstrap-servers: 127.0.0.1:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: searchlite
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 server:
   servlet:
     context-path: /searchlite

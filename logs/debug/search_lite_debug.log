@@ -31,3 +31,7 @@
 [2020-04-15 15:19:44,771][DEBUG][main] ==>  Preparing: select * from user  (BaseJdbcLogger.java:143)
 [2020-04-15 15:19:44,798][DEBUG][main] ==> Parameters:  (BaseJdbcLogger.java:143)
 [2020-04-15 15:19:44,832][DEBUG][main] <==      Total: 0 (BaseJdbcLogger.java:143)
+[2020-04-15 17:47:46,975][DEBUG][main] Running with Spring Boot v2.1.4.RELEASE, Spring v5.1.6.RELEASE (StartupInfoLogger.java:53)
+[2020-04-15 17:47:53,203][DEBUG][main] ==>  Preparing: select * from user  (BaseJdbcLogger.java:143)
+[2020-04-15 17:47:53,225][DEBUG][main] ==> Parameters:  (BaseJdbcLogger.java:143)
+[2020-04-15 17:47:53,256][DEBUG][main] <==      Total: 0 (BaseJdbcLogger.java:143)
