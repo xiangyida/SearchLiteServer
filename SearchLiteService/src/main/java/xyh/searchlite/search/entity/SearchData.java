@@ -12,10 +12,10 @@ public class SearchData implements Serializable {
     //搜题数据
     private String data;
     //时间
-    private Long timestamp;
+    private Long ts;
 
-    public SearchData(String data,Long timestamp){
+    public SearchData(String data,Long ts){
         this.data=data;
-        this.timestamp=timestamp;
+        this.ts=ts;
     }
 }

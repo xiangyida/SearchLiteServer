@@ -89,7 +89,7 @@ services:
       searchlite_net:
         ipv4_address: 172.12.35.31
   jobmanager:
-    image: flink:1.9.2
+    image: flink:1.10.0
     container_name: flink-jobmanager-searchlite
     expose:
       - "6123"
@@ -99,7 +99,7 @@ services:
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
   taskmanager:
-    image: flink:1.9.2
+    image: flink:1.10.0
     container_name: flink-taskmanager-searchlite
     expose:
       - "6121"
