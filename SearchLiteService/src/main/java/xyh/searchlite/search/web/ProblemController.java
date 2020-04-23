@@ -1,5 +1,6 @@
 package xyh.searchlite.search.web;
 
+import com.sun.org.glassfish.external.statistics.TimeStatistic;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,8 @@ import xyh.searchlite.search.service.ProblemService;
 import xyh.searchlite.search.service.SearchDataService;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 @RestController
@@ -32,7 +35,7 @@ public class ProblemController {
     @RequestMapping("/searchByString/{title}")
     public ApiResult<List<Problem>> searchByString(@PathVariable String title) {
         //记录搜索数据
-       searchDataService.collectSearchData(new SearchData(title,System.currentTimeMillis()));
+       searchDataService.collectSearchData(new SearchData(title, new Date(System.currentTimeMillis())));
        return ResultUtil.success(problemService.searchProblemByString(SearchTypeEnum.TITLE,title));
     }
 

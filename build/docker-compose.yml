@@ -4,9 +4,6 @@ services:
     image: redis:latest
     container_name: redis-searchlite
     hostname: redis_host
-    networks:
-      searchlite_net:
-        ipv4_address: 172.12.35.8
     ports:
       - 6379:6379
   db:
@@ -16,9 +13,6 @@ services:
     volumes:
       - /Users/xiangyida/docker/mysql/data:/var/lib/mysql
       - /Users/xiangyida/docker/mysql/config:/etc/mysql/conf.d
-    networks:
-      searchlite_net:
-        ipv4_address: 172.12.35.3
     ports:
       - 3306:3306
     environment:
@@ -26,8 +20,6 @@ services:
   search:
     image: elasticsearch:6.8.4
     container_name: elasticseaerch-searchlite
-    networks:
-      - searchlite_net
     volumes:
       - /Users/xiangyida/docker/es/plugins:/usr/share/elasticsearch/plugins
       - /Users/xiangyida/docker/es/data:/usr/share/elasticsearch/data
@@ -43,9 +35,6 @@ services:
     image: kibana:6.8.4
     container_name: kibana-searchlite
     restart: always
-    networks:
-      searchlite_net:
-        ipv4_address: 172.12.35.5
     environment:
       - ELASTICSEARCH_URL=http://172.12.35.2:9200
     links:
@@ -63,9 +52,6 @@ services:
 #    volumes:
 #      - /etc/timezone:/etc/timezone
 #      - /etc/localtime:/etc/localtime
-    networks:
-      searchlite_net:
-        ipv4_address: 172.12.35.21
     ports:
       - 2181:2181
   kafka1:
@@ -80,14 +66,11 @@ services:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zk1:2181
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://192.168.0.9:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_ADVERTISED_HOST_NAME: kafka1
       KAFKA_ADVERTISED_PORT: 9092
     links:
       - zk1
-    networks:
-      searchlite_net:
-        ipv4_address: 172.12.35.31
   jobmanager:
     image: flink:1.10.0
     container_name: flink-jobmanager-searchlite
@@ -111,6 +94,3 @@ services:
       - "jobmanager:jobmanager"
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
-networks:
-  searchlite_net:
-    external: true
