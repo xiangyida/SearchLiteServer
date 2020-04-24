@@ -16,6 +16,8 @@ import xyh.searchlite.search.service.SearchDataService;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -35,7 +37,7 @@ public class ProblemController {
     @RequestMapping("/searchByString/{title}")
     public ApiResult<List<Problem>> searchByString(@PathVariable String title) {
         //记录搜索数据
-       searchDataService.collectSearchData(new SearchData(title, new Date(System.currentTimeMillis())));
+        searchDataService.collectSearchData(new SearchData(title, System.currentTimeMillis()));
        return ResultUtil.success(problemService.searchProblemByString(SearchTypeEnum.TITLE,title));
     }
 
