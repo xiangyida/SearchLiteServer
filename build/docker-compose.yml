@@ -55,7 +55,7 @@ services:
     ports:
       - 2181:2181
   kafka1:
-    image: wurstmeister/kafka:2.12-2.4.1
+    image: wurstmeister/kafka:2.12-2.2.0
     restart: always
     container_name: kafka1-searchlite
     hostname: kafka1
