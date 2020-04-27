@@ -5,8 +5,8 @@ import org.apache.flink.table.api.TableEnvironment;
 
 public class StreamingJob {
 
-	private static final String CREATE_SOURCE = "create_source_kafka.sql";
-	private static final String CREATE_SINK = "create_sink_mysql.sql";
+	private static final String CREATE_SOURCE = "source_kafka.sql";
+	private static final String CREATE_SINK = "sink_mysql.sql";
 	private static final String OPERATOR_FREQUENCY_COUNT = "operator_frequency_count.sql";
 	public static void main(String[] args) throws Exception {
 

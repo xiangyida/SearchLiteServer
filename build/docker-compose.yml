@@ -72,7 +72,7 @@ services:
     links:
       - zk1
   jobmanager:
-    image: flink:1.10.0
+    image: flink:1.10.0-scala_2.11
     container_name: flink-jobmanager-searchlite
     expose:
       - "6123"
@@ -82,7 +82,7 @@ services:
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
   taskmanager:
-    image: flink:1.10.0
+    image: flink:1.10.0-scala_2.11
     container_name: flink-taskmanager-searchlite
     expose:
       - "6121"

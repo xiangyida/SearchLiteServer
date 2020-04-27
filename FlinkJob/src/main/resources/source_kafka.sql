@@ -9,6 +9,5 @@ CREATE TABLE KAFKA_SOURCE_SEARCH_DATA (
 'connector.startup-mode' = 'earliest-offset',
 'connector.properties.zookeeper.connect' = 'localhost:2181',
 'connector.properties.bootstrap.servers' = 'localhost:9092',
-'format.type' = 'json',
-'format.derive-schema' = 'true'
+'format.type' = 'json'
 )
