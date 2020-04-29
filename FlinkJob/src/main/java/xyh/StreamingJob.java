@@ -1,17 +1,21 @@
 package xyh;
 
+import org.apache.flink.streaming.api.TimeCharacteristic;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.EnvironmentSettings;
 import org.apache.flink.table.api.TableEnvironment;
+import org.apache.flink.table.api.java.StreamTableEnvironment;
 
 public class StreamingJob {
 
 	private static final String CREATE_SOURCE = "CREATE TABLE KAFKA_SOURCE_SEARCH_DATA (\n" +
 			"    data VARCHAR,\n" +
 			"    ts timestamp(3),\n" +
-			"    WATERMARK FOR ts as ts - INTERVAL '5' SECOND\n" +
+			"    WATERMARK FOR ts as ts - INTERVAL '0' SECOND\n" +
 			") WITH (\n" +
 			"'connector.type' = 'kafka',\n" +
 			"'connector.version' = 'universal',\n" +
+			"'connector.properties.group.id' = 'group-flink',\n" +
 			"'connector.topic' = 'search_data',\n" +
 			"'connector.startup-mode' = 'earliest-offset',\n" +
 			"'connector.properties.zookeeper.connect' = 'localhost:2181',\n" +
@@ -23,7 +27,7 @@ public class StreamingJob {
 			"    cnt_time timestamp(3)\n" +
 			") WITH (\n" +
 			"    'connector.type' = 'jdbc',\n" +
-			"    'connector.url' = 'jdbc:mysql://127.0.0.1:3306/search_lite?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC',\n" +
+			"    'connector.url' = 'jdbc:mysql://127.0.0.1:3306/search_lite',\n" +
 			"    'connector.table' = 'user_search_frequency',\n" +
 			"    'connector.username' = 'root',\n" +
 			"    'connector.password' = '123456',\n" +
@@ -31,7 +35,7 @@ public class StreamingJob {
 			")";
 	private static final String OPERATOR_FREQUENCY_COUNT = "INSERT INTO MYSQL_SINK_SEARCH_FREQUENCY(cnt,cnt_time)\n" +
 			"SELECT\n" +
-			"COUNT(*) as cnt ,\n" +
+			"COUNT(*) as cnt,\n" +
 			"TUMBLE_START(ts, INTERVAL '1' MINUTE) as cnt_time\n" +
 			"FROM KAFKA_SOURCE_SEARCH_DATA\n" +
 			"GROUP BY TUMBLE(ts, INTERVAL '1' MINUTE)";
@@ -43,7 +47,11 @@ public class StreamingJob {
 				.inStreamingMode()
 				.build();
 
-		TableEnvironment tEnv = TableEnvironment.create(settings);
+		StreamExecutionEnvironment bsEnv = StreamExecutionEnvironment.getExecutionEnvironment();
+		bsEnv.setParallelism(4);
+		bsEnv.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
+		StreamTableEnvironment tEnv = StreamTableEnvironment.create(bsEnv, settings);
+
 
 
 		//source
