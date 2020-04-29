@@ -20,16 +20,16 @@ public class ExecSQL {
             "    cnt BIGINT\n" +
             ") WITH (\n" +
             "    'connector.type' = 'jdbc',\n" +
-            "    'connector.url' = 'jdbc:mysql://127.0.0.1:3306/search_lite',\n" +
+            "    'connector.url' = 'jdbc:mysql://123.207.11.229:3306/search_lite?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&autoReconnect=true&failOverReadOnly=false',\n" +
             "    'connector.table' = 'user_search_frequency',\n" +
             "    'connector.username' = 'root',\n" +
-            "    'connector.password' = '123456',\n" +
+            "    'connector.password' = 'yxyj6900@',\n" +
             "    'connector.write.flush.max-rows' = '1'\n" +
             ")";
     public static final String OPERATOR_FREQUENCY_COUNT = "INSERT INTO MYSQL_SINK_SEARCH_FREQUENCY(cnt_time,cnt)\n" +
             " SELECT\n" +
-            " CAST(TUMBLE_START(ts, INTERVAL '10' minute) AS STRING) cnt_time,\n" +
+            " CAST(TUMBLE_START(ts, INTERVAL '5' second) AS STRING) cnt_time,\n" +
             " COUNT(*) as cnt\n" +
             " FROM KAFKA_SOURCE_SEARCH_DATA\n" +
-            " GROUP BY TUMBLE(ts, INTERVAL '10' minute)";
+            " GROUP BY TUMBLE(ts, INTERVAL '5' second)";
 }
