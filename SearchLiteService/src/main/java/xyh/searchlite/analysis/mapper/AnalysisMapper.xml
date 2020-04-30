@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyh.searchlite.analysis.mapper.AnalysisMapper">
+    <select id="getSearchFrequency" resultType="xyh.searchlite.analysis.entity.SearchFrequency">
+        select *
+        from user_search_frequency
+        where create_date > DATE_FORMAT(CURDATE(), '%Y-%m-%d %H:%i:%s')
+        order by create_date desc
+    </select>
+</mapper>
