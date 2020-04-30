@@ -33,5 +33,5 @@ public class ExecSQL {
             " CAST(TUMBLE_START(ts, INTERVAL '10' minute) AS STRING) cnt_time,\n" +
             " COUNT(*) as cnt\n" +
             " FROM KAFKA_SOURCE_SEARCH_DATA\n" +
-            " GROUP BY TUMBLE(ts, INTERVAL '5' minute)";
+            " GROUP BY TUMBLE(ts, INTERVAL '10' minute)";
 }
