@@ -1391,6 +1391,13 @@ create table search_records
     charset = utf8;
 
 
+create table test
+(
+    data varchar(255) null,
+    ts   varchar(255) null
+);
+
+
 create table user
 (
     id      bigint auto_increment
@@ -1402,4 +1409,12 @@ create table user
         unique (open_id)
 )
     charset = utf8;
+
+
+create table user_search_frequency
+(
+    cnt_time    varchar(255)                       not null,
+    cnt         int                                null,
+    create_date datetime default CURRENT_TIMESTAMP null
+);
 
