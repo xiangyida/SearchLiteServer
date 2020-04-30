@@ -62,16 +62,18 @@ services:
     hostname: kafka1
     ports:
       - 9092:9092
+      - 9094:9094
     environment:
-      KAFKA_HOST_NAME: kafka1
-      KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: zk1:2181
-      KAFKA_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_ADVERTISED_HOST_NAME: kafka1
-      KAFKA_ADVERTISED_PORT: 9092
+      - KAFKA_ADVERTISED_LISTENERS=INSIDE://:9094,OUTSIDE://localhost:9092
+      - KAFKA_LISTENERS=INSIDE://:9094,OUTSIDE://:9092
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      - KAFKA_INTER_BROKER_LISTENER_NAME=INSIDE
+      - KAFKA_ZOOKEEPER_CONNECT=zK1:2181
+      - KAFKA_CREATE_TOPICS="search_data"
     links:
       - zk1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
   jobmanager:
     image: flink:1.10.0-scala_2.11
     container_name: flink-jobmanager-searchlite

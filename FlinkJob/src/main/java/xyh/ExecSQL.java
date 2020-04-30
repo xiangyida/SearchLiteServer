@@ -4,7 +4,7 @@ public class ExecSQL {
     public static final String CREATE_SOURCE = "CREATE TABLE KAFKA_SOURCE_SEARCH_DATA (\n" +
             "    data VARCHAR,\n" +
             "    ts timestamp(3),\n" +
-            "    WATERMARK FOR ts as ts - INTERVAL '0' SECOND\n" +
+            "    WATERMARK FOR ts as ts - INTERVAL '1' SECOND\n" +
             ") WITH (\n" +
             "'connector.type' = 'kafka',\n" +
             "'connector.version' = 'universal',\n" +
@@ -12,7 +12,7 @@ public class ExecSQL {
             "'connector.topic' = 'search_data',\n" +
             "'connector.startup-mode' = 'earliest-offset',\n" +
             "'connector.properties.zookeeper.connect' = 'localhost:2181',\n" +
-            "'connector.properties.bootstrap.servers' = 'localhost:9092',\n" +
+            "'connector.properties.bootstrap.servers' = 'kafka1:9094',\n" +
             "'format.type' = 'json'\n" +
             ")";
     public static final String CREATE_SINK = "CREATE TABLE MYSQL_SINK_SEARCH_FREQUENCY (\n" +

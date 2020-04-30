@@ -8,7 +8,7 @@ CREATE TABLE KAFKA_SOURCE_SEARCH_DATA (
 'connector.properties.group.id' = 'group-flink',
 'connector.topic' = 'search_data',
 'connector.startup-mode' = 'earliest-offset',
-'connector.properties.zookeeper.connect' = 'zk1:2181',
-'connector.properties.bootstrap.servers' = 'kafka1:9092',
+'connector.properties.zookeeper.connect' = 'localhost:2181',
+'connector.properties.bootstrap.servers' = 'localhost:9092',
 'format.type' = 'json'
 )
