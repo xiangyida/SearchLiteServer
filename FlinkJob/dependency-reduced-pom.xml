@@ -59,16 +59,6 @@
       <artifactId>flink-table-api-java-bridge_2.11</artifactId>
       <version>1.10.0</version>
       <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>flink-java</artifactId>
-          <groupId>org.apache.flink</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>flink-streaming-java_2.11</artifactId>
-          <groupId>org.apache.flink</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.flink</groupId>
@@ -141,16 +131,8 @@
           <groupId>org.scala-lang</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>scala-library</artifactId>
-          <groupId>org.scala-lang</groupId>
-        </exclusion>
-        <exclusion>
           <artifactId>scala-compiler</artifactId>
           <groupId>org.scala-lang</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>flink-streaming-java_2.11</artifactId>
-          <groupId>org.apache.flink</groupId>
         </exclusion>
       </exclusions>
     </dependency>
