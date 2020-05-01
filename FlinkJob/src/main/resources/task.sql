@@ -1,5 +1,5 @@
-
 -- 搜题频率计算
+-----------------------------------------------
 CREATE TABLE KAFKA_SOURCE_SEARCH_DATA (
     data VARCHAR,
     ts timestamp(3),
@@ -33,3 +33,18 @@ COUNT(*) as cnt,
 TUMBLE_START(ts, INTERVAL '10' MINUTE) as cnt_time
 FROM KAFKA_SOURCE_SEARCH_DATA
 GROUP BY TUMBLE(ts, INTERVAL '10' MINUTE)
+
+-- 词频
+-----------------------------------------------
+CREATE TABLE KAFKA_SOURCE_SEARCH_WORD_COUNT (
+    data VARCHAR
+) WITH (
+'connector.type' = 'kafka',
+'connector.version' = 'universal',
+'connector.properties.group.id' = 'group-word_cloud',
+'connector.topic' = 'search_data',
+'connector.startup-mode' = 'earliest-offset',
+'connector.properties.zookeeper.connect' = 'localhost:2181',
+'connector.properties.bootstrap.servers' = 'kafka1:9094',
+'format.type' = 'json'
+)
