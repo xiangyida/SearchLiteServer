@@ -7,7 +7,6 @@ import com.github.yang69.flink.streaming.connectors.redis.common.mapper.RedisCom
 import com.github.yang69.flink.streaming.connectors.redis.common.mapper.RedisMapper;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
-import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.EnvironmentSettings;
@@ -22,7 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StreamingJob {
+public class SearchWordCount {
 	public static void main(String[] args) throws Exception {
 		StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
@@ -30,22 +29,7 @@ public class StreamingJob {
 				.useBlinkPlanner()
 				.inStreamingMode()
 				.build();
-
-		env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
-
 		StreamTableEnvironment tEnv = StreamTableEnvironment.create(env, settings);
-
-
-		//search frequency count
-		//---------------------------------------------------------------------------
-		//source
-		tEnv.sqlUpdate(ExecSQL.KAFKA_SOURCE_SEARCH_DATA);
-		//sink
-		tEnv.sqlUpdate(ExecSQL.MYSQL_SINK_SEARCH_FREQUENCY);
-		//operator
-		tEnv.sqlUpdate(ExecSQL.OPERATOR_FREQUENCY_COUNT);
-
-		//---------------------------------------------------------------------------
 
 		//word count
 		//---------------------------------------------------------------------------
@@ -60,8 +44,6 @@ public class StreamingJob {
 		FlinkJedisPoolConfig config = new FlinkJedisPoolConfig.Builder().setHost("127.0.0.1").setPort(6379).build();
 		RedisSink<Tuple2<String,Integer>> redisSink = new RedisSink<>(config,new WordCountRedisMapper());
 		counts.addSink(redisSink);
-
-		//----------------------------------------------------------------------------
 
 		tEnv.execute("SearchLite AnalysisModel FlinkJob");
 	}

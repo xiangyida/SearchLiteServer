@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <artifactId>flinkjob</artifactId>
+    <groupId>xyh</groupId>
+    <version>1.1</version>
+  </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>xyh</groupId>
-  <artifactId>flinkjob</artifactId>
-  <name>FlinkJob</name>
+  <artifactId>SearchWordCount</artifactId>
+  <name>SearchWordCount</name>
   <version>1.1</version>
   <build>
     <plugins>
@@ -44,7 +48,7 @@
               </filters>
               <transformers>
                 <transformer>
-                  <mainClass>xyh.StreamingJob</mainClass>
+                  <mainClass>xyh.SearchWordCount</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -65,12 +69,6 @@
       <artifactId>flink-table-api-java</artifactId>
       <version>1.10.0</version>
       <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>flink-table-common</artifactId>
-          <groupId>org.apache.flink</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.flink</groupId>
@@ -79,40 +77,12 @@
       <scope>provided</scope>
       <exclusions>
         <exclusion>
-          <artifactId>flink-table-api-scala_2.11</artifactId>
-          <groupId>org.apache.flink</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>flink-table-api-scala-bridge_2.11</artifactId>
-          <groupId>org.apache.flink</groupId>
-        </exclusion>
-        <exclusion>
           <artifactId>flink-table-runtime-blink_2.11</artifactId>
           <groupId>org.apache.flink</groupId>
         </exclusion>
         <exclusion>
           <artifactId>reflections</artifactId>
           <groupId>org.reflections</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>flink-table-common</artifactId>
-          <groupId>org.apache.flink</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.flink</groupId>
-      <artifactId>flink-table-planner_2.11</artifactId>
-      <version>1.10.0</version>
-      <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>flink-table-api-scala-bridge_2.11</artifactId>
-          <groupId>org.apache.flink</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>flink-table-common</artifactId>
-          <groupId>org.apache.flink</groupId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -121,20 +91,12 @@
       <artifactId>flink-streaming-scala_2.11</artifactId>
       <version>1.10.0</version>
       <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>flink-scala_2.11</artifactId>
-          <groupId>org.apache.flink</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>scala-reflect</artifactId>
-          <groupId>org.scala-lang</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>scala-compiler</artifactId>
-          <groupId>org.scala-lang</groupId>
-        </exclusion>
-      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-json</artifactId>
+      <version>1.10.0</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -149,11 +111,4 @@
       <scope>compile</scope>
     </dependency>
   </dependencies>
-  <properties>
-    <java.version>1.8</java.version>
-    <flink.version>1.10.0</flink.version>
-    <maven.compiler.source>${java.version}</maven.compiler.source>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.target>${java.version}</maven.compiler.target>
-  </properties>
 </project>
