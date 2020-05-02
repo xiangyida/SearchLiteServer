@@ -16,5 +16,5 @@ public class ExecSQL {
             "'format.type' = 'json'\n" +
             ")";
 
-    public static final String SEARCH_WORD_QUERY = "SELECT * FROM KAFKA_SOURCE_SEARCH_WORD_COUNT";
+    public static final String SEARCH_WORD_QUERY = "SELECT data FROM KAFKA_SOURCE_SEARCH_WORD_COUNT";
 }
