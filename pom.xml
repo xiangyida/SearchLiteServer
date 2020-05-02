@@ -10,7 +10,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>SearchLiteService</module>
-        <module>FlinkJob</module>
+        <module>SearchFrequency</module>
+        <module>SearchWordCount</module>
     </modules>
 
 
