@@ -40,16 +40,13 @@ public class SearchWordCount {
 				.keyBy(0).sum(1);
 
 		//sink到redis
-		FlinkJedisPoolConfig config = new FlinkJedisPoolConfig.Builder().setHost("172.18.0.3").setPort(6379).build();
+		FlinkJedisPoolConfig config = new FlinkJedisPoolConfig.Builder().setHost("172.18.0.2").setPort(6379).build();
 		RedisSink<Tuple2<String,Integer>> redisSink = new RedisSink<>(config,new WordCountRedisMapper());
 		counts.addSink(redisSink);
 
 
 		env.execute("SearchLite AnalysisModel FlinkJob");
 	}
-
-
-
 
 
 	public static final class WordAnalysis implements FlatMapFunction<String, Tuple2<String, Integer>> {
@@ -89,7 +86,7 @@ public class SearchWordCount {
 			CharTermAttribute term = ts.addAttribute(CharTermAttribute.class);
 			ts.reset();
 			while (ts.incrementToken()) {
-				list.add(term.toString());
+				if(term.toString().length()>1)list.add(term.toString());
 			}
 			ts.end();
 		} catch (IOException e) {

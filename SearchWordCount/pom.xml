@@ -21,7 +21,7 @@ under the License.
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>xyh</groupId>
 	<artifactId>SearchWordCount</artifactId>
-	<version>1.1</version>
+	<version>1.2</version>
 	<packaging>jar</packaging>
 	<name>SearchWordCount</name>
 

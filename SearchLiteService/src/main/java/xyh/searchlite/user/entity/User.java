@@ -1,6 +1,7 @@
 package xyh.searchlite.user.entity;
 
 import lombok.Data;
+import xyh.searchlite.common.entity.RootEntity;
 
 import java.io.Serializable;
 
@@ -10,7 +11,7 @@ import java.io.Serializable;
  * 用户
  */
 @Data
-public class User implements Serializable{
+public class User  implements Serializable{
     //用户的openId
     private String id;
     //用户名

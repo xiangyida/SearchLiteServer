@@ -4,7 +4,7 @@
   <groupId>xyh</groupId>
   <artifactId>SearchWordCount</artifactId>
   <name>SearchWordCount</name>
-  <version>1.1</version>
+  <version>1.2</version>
   <build>
     <plugins>
       <plugin>
