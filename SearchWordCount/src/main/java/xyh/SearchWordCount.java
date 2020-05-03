@@ -1,6 +1,8 @@
 package xyh;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.yang69.flink.streaming.connectors.redis.RedisSink;
+import com.github.yang69.flink.streaming.connectors.redis.common.config.FlinkJedisPoolConfig;
 import com.github.yang69.flink.streaming.connectors.redis.common.mapper.RedisCommand;
 import com.github.yang69.flink.streaming.connectors.redis.common.mapper.RedisCommandDescription;
 import com.github.yang69.flink.streaming.connectors.redis.common.mapper.RedisMapper;
@@ -23,7 +25,6 @@ import java.util.Properties;
 public class SearchWordCount {
 	public static void main(String[] args) throws Exception {
 		final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-
 		Properties properties = new Properties();
 		properties.setProperty("bootstrap.servers", "kafka1:9094");
 		properties.setProperty("group.id", "group-flink-word_count");
@@ -38,11 +39,10 @@ public class SearchWordCount {
 		DataStream<Tuple2<String, Integer>> counts = input.flatMap(new WordAnalysis())
 				.keyBy(0).sum(1);
 
-		counts.print();
 		//sink到redis
-		//FlinkJedisPoolConfig config = new FlinkJedisPoolConfig.Builder().setHost("127.0.0.1").setPort(6379).build();
-		//RedisSink<Tuple2<String,Integer>> redisSink = new RedisSink<>(config,new WordCountRedisMapper());
-		//counts.addSink(redisSink);
+		FlinkJedisPoolConfig config = new FlinkJedisPoolConfig.Builder().setHost("172.18.0.3").setPort(6379).build();
+		RedisSink<Tuple2<String,Integer>> redisSink = new RedisSink<>(config,new WordCountRedisMapper());
+		counts.addSink(redisSink);
 
 
 		env.execute("SearchLite AnalysisModel FlinkJob");

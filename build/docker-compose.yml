@@ -6,7 +6,8 @@ services:
     hostname: redis_host
     ports:
       - 6379:6379
-    tty: true
+    command:
+      redis-server
   db:
     image: mysql:5.7
     container_name: mysql-searchlite
