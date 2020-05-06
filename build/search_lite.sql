@@ -2,12 +2,15 @@ create table login_records
 (
     id      bigint auto_increment
         primary key,
-    user_id bigint                              null,
+    open_id varchar(255)                        null,
     time    timestamp default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP
 )
     charset = utf8;
 
-
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (1, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 19:48:52');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (2, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 19:49:21');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (3, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 20:51:02');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (4, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 20:54:40');
 create table problem
 (
     id                   int auto_increment
@@ -1384,18 +1387,11 @@ create table search_records
 (
     id         bigint auto_increment
         primary key,
-    user_id    bigint                              null,
+    open_id    varchar(255)                        null,
     problem_id varchar(255)                        not null,
     view_time  timestamp default CURRENT_TIMESTAMP null
 )
     charset = utf8;
-
-
-create table test
-(
-    data varchar(255) null,
-    ts   varchar(255) null
-);
 
 
 create table user
@@ -1403,14 +1399,13 @@ create table user
     id      bigint auto_increment
         primary key,
     open_id varchar(255)                        null,
-    name    varchar(255)                        not null,
     time    timestamp default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP,
     constraint user_open_id_uindex
         unique (open_id)
 )
     charset = utf8;
 
-
+INSERT INTO search_lite.user (id, open_id, time) VALUES (1, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 20:54:40');
 create table user_search_frequency
 (
     cnt_time    varchar(255)                       not null,
@@ -1418,3 +1413,30 @@ create table user_search_frequency
     create_date datetime default CURRENT_TIMESTAMP null
 );
 
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:01:00.000', 3, '2020-05-05 15:01:05');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:01:05.000', 11, '2020-05-05 15:01:50');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:01:50.000', 22, '2020-05-05 15:01:55');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:01:55.000', 10, '2020-05-05 15:02:54');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:02:50.000', 5, '2020-05-05 15:02:55');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:09:55.000', 1, '2020-05-05 15:37:04');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:10:05.000', 1, '2020-05-05 15:37:04');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:10:10.000', 25, '2020-05-05 15:37:04');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:10:15.000', 19, '2020-05-05 15:37:04');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:10:20.000', 16, '2020-05-05 15:37:05');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:20:40.000', 15, '2020-05-05 15:37:05');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:21:35.000', 22, '2020-05-05 15:37:05');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:21:40.000', 3, '2020-05-05 15:37:05');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:01:00.000', 3, '2020-05-05 15:37:05');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:01:05.000', 11, '2020-05-05 15:37:05');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:01:50.000', 22, '2020-05-05 15:37:06');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:01:55.000', 10, '2020-05-05 15:37:06');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:02:50.000', 5, '2020-05-05 15:37:06');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:02:55.000', 1, '2020-05-05 15:37:06');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:12:10.000', 22, '2020-05-05 15:37:06');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:12:15.000', 6, '2020-05-05 15:37:06');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:12:40.000', 5, '2020-05-05 15:37:06');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:36:50.000', 1, '2020-05-05 15:37:18');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:37:15.000', 8, '2020-05-05 15:37:20');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:37:20.000', 28, '2020-05-05 15:37:25');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:37:25.000', 25, '2020-05-05 15:37:31');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:37:30.000', 23, '2020-05-05 15:37:35');
