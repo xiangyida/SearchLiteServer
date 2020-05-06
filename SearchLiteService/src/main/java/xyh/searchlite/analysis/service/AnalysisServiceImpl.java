@@ -35,6 +35,7 @@ public class AnalysisServiceImpl implements AnalysisService {
                 .entrySet()
                 .stream()
                 .sorted(Comparator.comparing(e -> -Integer.parseInt(e.getValue())))
+                .limit(16)
                 .forEachOrdered(e ->result.put(e.getKey(),Integer.valueOf(e.getValue())));
         return result;
     }

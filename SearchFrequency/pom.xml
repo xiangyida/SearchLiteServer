@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>xyh</groupId>
 	<artifactId>SearchFrequency</artifactId>
-	<version>1.2</version>
+	<version>1.2-test</version>
 	<packaging>jar</packaging>
 	<name>SearchFrequency</name>
 

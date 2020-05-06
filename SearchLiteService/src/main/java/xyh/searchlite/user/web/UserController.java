@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import xyh.searchlite.common.result.ApiResult;
 import xyh.searchlite.common.result.ResultUtil;
 import xyh.searchlite.user.entity.LoginResult;
-import xyh.searchlite.user.entity.PPT;
-import xyh.searchlite.user.entity.Push;
 import xyh.searchlite.user.entity.SearchRecords;
 import xyh.searchlite.user.service.UserService;
 
@@ -34,19 +32,9 @@ public class UserController {
         this.userService=userService;
     }
 
-    @RequestMapping("/ppts")
-    public ApiResult<List<PPT>>getPPT(){
-       return ResultUtil.success(userService.getPPT());
-    }
-
     @RequestMapping("/searchRecords/{userId}")
     public ApiResult<List<SearchRecords>>getSearchRecords(@PathVariable String userId){
         return ResultUtil.success(userService.getSearchRecords(userId));
-    }
-
-    @RequestMapping("/push")
-    public ApiResult<List<Push>>getPush(){
-        return ResultUtil.success(userService.pushHtml());
     }
 
     @RequestMapping("/login/{code}")
@@ -64,9 +52,9 @@ public class UserController {
     }
 
     @RequestMapping("/recordSearch")
-    public ApiResult recordSearch(String userId,String problemId){
+    public ApiResult recordSearch(String openId,String problemId){
         SearchRecords searchRecords=new SearchRecords();
-        searchRecords.setUserId(userId);
+        searchRecords.setOpenId(openId);
         searchRecords.setProblemId(problemId);
         userService.recordSearch(searchRecords);
         return ResultUtil.success();

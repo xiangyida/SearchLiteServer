@@ -6,7 +6,7 @@ public class ExecSQL {
     public static final String KAFKA_SOURCE_SEARCH_DATA = "CREATE TABLE KAFKA_SOURCE_SEARCH_DATA (\n" +
             "    data VARCHAR,\n" +
             "    ts timestamp(3),\n" +
-            "    WATERMARK FOR ts as ts - INTERVAL '5' SECOND\n" +
+            "    WATERMARK FOR ts as ts - INTERVAL '0' SECOND\n" +
             ") WITH (\n" +
             "'connector.type' = 'kafka',\n" +
             "'connector.version' = 'universal',\n" +
@@ -32,9 +32,9 @@ public class ExecSQL {
 
     public static final String OPERATOR_FREQUENCY_COUNT = "INSERT INTO MYSQL_SINK_SEARCH_FREQUENCY(cnt_time,cnt)\n" +
             " SELECT\n" +
-            " CAST(TUMBLE_START(ts, INTERVAL '10' minute) AS STRING) cnt_time,\n" +
+            " CAST(TUMBLE_START(ts, INTERVAL '5' second) AS STRING) cnt_time,\n" +
             " COUNT(*) as cnt\n" +
             " FROM KAFKA_SOURCE_SEARCH_DATA\n" +
-            " GROUP BY TUMBLE(ts, INTERVAL '10' minute)";
+            " GROUP BY TUMBLE(ts, INTERVAL '5' second)";
 
 }

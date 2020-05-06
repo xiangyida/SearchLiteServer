@@ -12,10 +12,10 @@ import java.io.Serializable;
  */
 @Data
 public class User  implements Serializable{
-    //用户的openId
+
     private String id;
-    //用户名
-    private String name;
+    //用户的openId
+    private String openId;
     //注册时间
     private String time;
 

@@ -1,7 +1,5 @@
 package xyh.searchlite.user.service;
 
-import xyh.searchlite.user.entity.PPT;
-import xyh.searchlite.user.entity.Push;
 import xyh.searchlite.user.entity.SearchRecords;
 
 import java.util.List;
@@ -11,11 +9,6 @@ import java.util.List;
  * @version 2019/5/6 19:13
  */
 public interface UserService {
-    /**
-     * 向用户推送文章
-     */
-    List<Push> pushHtml();
-
     /**
      * 用户通过userId查询搜题记录
      * @param userId userId
@@ -29,12 +22,6 @@ public interface UserService {
      * @return
      */
     String getOpenId(String code);
-
-    /**
-     * 返回ppt信息
-     * @return ppt
-     */
-    List<PPT> getPPT();
 
     /**
      * 记录搜题

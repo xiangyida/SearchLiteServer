@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Data
 public class SearchRecords implements Serializable {
     //用户Id
-    String userId;
+    String openId;
 
     //题目Id
     String problemId;

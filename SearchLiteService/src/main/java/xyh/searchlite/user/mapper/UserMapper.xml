@@ -4,33 +4,28 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyh.searchlite.user.mapper.UserMapper">
     <insert id="insertSearchRecords">
-        insert into search_records(user_id, problem_id)
-        VALUES (#{searchRecords.userId}, #{searchRecords.problemId})
-    </insert>
-    <insert id="insertLoginRecords">
-        insert into login_records (user_id)
-        values (#{userId})
-    </insert>
-    <insert id="insertUser" parameterType="xyh.searchlite.user.entity.User">
-        insert into `user` (id, name)
-        VALUES (#{user.id}, #{user.name})
+        insert into search_records(open_id, problem_id)
+        VALUES (#{searchRecords.openId}, #{searchRecords.problemId})
     </insert>
 
-    <select id="getPush" resultType="xyh.searchlite.user.entity.Push">
-        select *
-        from push
-    </select>
+    <insert id="insertLoginRecords">
+        insert into login_records (open_id)
+        values (#{openId})
+    </insert>
+
+    <insert id="insertUser" parameterType="String">
+        insert into `user` (open_id)
+        VALUES (#{openId})
+    </insert>
+
     <select id="getSearchRecords" resultType="xyh.searchlite.user.entity.SearchRecords">
         select *
         from search_records
-        where user_id = #{userId}
+        where open_id = #{openId}
     </select>
-    <select id="getPPT" resultType="xyh.searchlite.user.entity.PPT">
-        select *
-        from ppt
-    </select>
-    <select id="getAllUser" resultType="xyh.searchlite.user.entity.User">
-        select *
+
+    <select id="getAllOpenId" resultType="String">
+        select open_id
         from user
     </select>
 </mapper>
