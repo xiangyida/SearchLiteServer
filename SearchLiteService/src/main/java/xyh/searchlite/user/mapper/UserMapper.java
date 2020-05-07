@@ -23,4 +23,12 @@ public interface UserMapper {
     List<String> getAllOpenId();
     //向用户表中添加数据
     void insertUser(@Param("openId") String openId);
+    //得到用户今天的搜题数量
+    Integer getPersonalTodaySearchCount(@Param("openId") String openId);
+    //得到用户总搜题数量
+    Integer getPersonalTotalSearchCount(@Param("openId") String openId);
+    //得到用户今日搜题排名
+    Integer getPersonalTodaySearchRank(@Param("openId") String openId);
+    //得到今天的搜题总人数
+    Integer getTodaySearchPeople();
 }

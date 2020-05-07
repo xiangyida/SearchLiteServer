@@ -1,9 +1,18 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://123.207.11.229:3306/search_lite?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: yxyj6900@
+    url: jdbc:mysql://123.207.11.229:3306/search_lite?useUnicode=true&characterEncoding=UTF-8
+    hikari:
+      readOnly: false
+      connectionTimeout: 60000
+      idleTimeout: 60000
+      validationTimeout: 3000
+      maxLifetime: 60000
+      loginTimeout: 5
+      maximumPoolSize: 60
+      minimumIdle: 10
   redis:
     host: 127.0.0.1
     port: 6379

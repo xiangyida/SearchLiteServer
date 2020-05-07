@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import xyh.searchlite.common.result.ApiResult;
 import xyh.searchlite.common.result.ResultUtil;
 import xyh.searchlite.user.entity.LoginResult;
+import xyh.searchlite.user.entity.PersonalSearchData;
 import xyh.searchlite.user.entity.SearchRecords;
 import xyh.searchlite.user.service.UserService;
 
@@ -45,19 +46,25 @@ public class UserController {
         userService.recordLogin(userId);
         LoginResult loginResult=new LoginResult();
         //返回用户的openId
-        loginResult.setUserId(userId);
+        loginResult.setOpenId(userId);
         //返回云对象存储的uri，后面加装图片会用到
         loginResult.setCosUri(this.cosUri);
         return ResultUtil.success(loginResult);
     }
 
     @RequestMapping("/recordSearch")
-    public ApiResult recordSearch(String openId,String problemId){
+    public ApiResult<?> recordSearch(String openId,String problemId){
         SearchRecords searchRecords=new SearchRecords();
         searchRecords.setOpenId(openId);
         searchRecords.setProblemId(problemId);
         userService.recordSearch(searchRecords);
         return ResultUtil.success();
+    }
+
+
+    @RequestMapping("/personalSearchData/{openId}")
+    public ApiResult<PersonalSearchData> personalSearchData(@PathVariable String openId){
+        return ResultUtil.success(userService.getPersonalSearchData(openId));
     }
 
 

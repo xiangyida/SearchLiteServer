@@ -19,13 +19,35 @@
     </insert>
 
     <select id="getSearchRecords" resultType="xyh.searchlite.user.entity.SearchRecords">
-        select *
-        from search_records
-        where open_id = #{openId}
+        select s.problem_id,s.time,p.title,p.problem_picture_name,p.answer_picture_name from search_records s left join
+        problem p on s.problem_id = p.id
+        where s.open_id = #{openId}
     </select>
 
     <select id="getAllOpenId" resultType="String">
         select open_id
         from user
+    </select>
+    <select id="getPersonalTodaySearchCount" resultType="java.lang.Integer">
+        select count(*)  from search_records
+        where open_id = #{openId} and time > DATE_FORMAT(CURDATE(), '%Y-%m-%d %H:%i:%s')
+    </select>
+    <select id="getPersonalTotalSearchCount" resultType="java.lang.Integer">
+        select count(*) from search_records where open_id = #{openId}
+    </select>
+    <select id="getPersonalTodaySearchRank" resultType="java.lang.Integer">
+        select rk
+        from (
+                 select open_id, count(*) as cnt, (@rowNum := @rowNum + 1) as rk
+                 from search_records,
+                      (SELECT(@rowNum := 0)) b
+                 where time > DATE_FORMAT(CURDATE(), '%Y-%m-%d %H:%i:%s')
+                 group by open_id
+                 order by cnt desc
+             ) t
+        where open_id = #{openId}
+    </select>
+    <select id="getTodaySearchPeople" resultType="java.lang.Integer">
+        select count(distinct(open_id)) from search_records
     </select>
 </mapper>

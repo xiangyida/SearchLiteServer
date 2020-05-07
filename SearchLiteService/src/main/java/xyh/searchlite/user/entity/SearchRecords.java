@@ -17,6 +17,15 @@ public class SearchRecords implements Serializable {
     //题目Id
     String problemId;
 
+    //题目title
+    String title;
+
+    //题目图片
+    String problemPictureName;
+
+    //答案图片
+    String answerPictureName;
+
     //搜索日期
     String time;
 }

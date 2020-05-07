@@ -1,5 +1,6 @@
 package xyh.searchlite.user.service;
 
+import xyh.searchlite.user.entity.PersonalSearchData;
 import xyh.searchlite.user.entity.SearchRecords;
 
 import java.util.List;
@@ -40,5 +41,11 @@ public interface UserService {
      * 在启动完成后系统会调用
      */
     void importUserToRedis();
+
+    /**
+     * 得到用户的个人搜题数据
+     * @return 个人搜题数据
+     */
+    PersonalSearchData getPersonalSearchData(String openId);
 
 }

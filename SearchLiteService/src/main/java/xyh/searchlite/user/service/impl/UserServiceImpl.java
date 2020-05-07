@@ -8,10 +8,13 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SetOperations;
 import org.springframework.stereotype.Service;
 import xyh.searchlite.common.utils.HttpUtil;
+import xyh.searchlite.user.entity.PersonalSearchData;
 import xyh.searchlite.user.entity.User;
 import xyh.searchlite.user.mapper.UserMapper;
 import xyh.searchlite.user.entity.SearchRecords;
 import xyh.searchlite.user.service.UserService;
+
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,5 +73,20 @@ public class UserServiceImpl implements UserService {
     public void importUserToRedis() {
         SetOperations<String,String>  setOperations = redisTemplate.opsForSet();
         userMapper.getAllOpenId().forEach(s-> setOperations.add(REDIS_SET_KEY,s));
+    }
+
+    @Override
+    public PersonalSearchData getPersonalSearchData(String openId) {
+        PersonalSearchData personalSearchData = new PersonalSearchData();
+        personalSearchData.setTodaySearchCount(userMapper.getPersonalTodaySearchCount(openId));
+        personalSearchData.setTotalSearchCount(userMapper.getPersonalTotalSearchCount(openId));
+        Integer todayRank = userMapper.getPersonalTodaySearchRank(openId);
+        Integer todayPeople = userMapper.getTodaySearchPeople();
+        personalSearchData.setTodayRank(todayRank);
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMaximumFractionDigits(2);
+        String result = numberFormat.format((float) todayRank / (float) todayPeople * 100);
+        personalSearchData.setRankPercentage(result);
+        return  personalSearchData;
     }
 }

@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class LoginResult {
     //用户的openId
-    private String userId;
+    private String openId;
 
     //图片保存的Uri
     private String cosUri;
