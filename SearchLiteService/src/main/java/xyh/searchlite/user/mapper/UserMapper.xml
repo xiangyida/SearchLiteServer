@@ -17,6 +17,10 @@
         insert into `user` (open_id)
         VALUES (#{openId})
     </insert>
+    <insert id="insertFeedback">
+        insert into feedback (problem, contact)
+        values (#{message.problem},#{message.contact})
+    </insert>
 
     <select id="getSearchRecords" resultType="xyh.searchlite.user.entity.SearchRecords">
         select s.problem_id,s.time,p.title,p.problem_picture_name,p.answer_picture_name from search_records s left join

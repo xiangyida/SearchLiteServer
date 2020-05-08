@@ -3,11 +3,10 @@ package xyh.searchlite.user.web;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import xyh.searchlite.common.result.ApiResult;
 import xyh.searchlite.common.result.ResultUtil;
+import xyh.searchlite.user.entity.FeedbackMsg;
 import xyh.searchlite.user.entity.LoginResult;
 import xyh.searchlite.user.entity.PersonalSearchData;
 import xyh.searchlite.user.entity.SearchRecords;
@@ -65,6 +64,12 @@ public class UserController {
     @RequestMapping("/personalSearchData/{openId}")
     public ApiResult<PersonalSearchData> personalSearchData(@PathVariable String openId){
         return ResultUtil.success(userService.getPersonalSearchData(openId));
+    }
+
+    @PostMapping("/feedback/")
+    public ApiResult<?> userFeedback(@RequestBody FeedbackMsg message){
+        userService.feedback(message);
+        return ResultUtil.success();
     }
 
 

@@ -8,6 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SetOperations;
 import org.springframework.stereotype.Service;
 import xyh.searchlite.common.utils.HttpUtil;
+import xyh.searchlite.user.entity.FeedbackMsg;
 import xyh.searchlite.user.entity.PersonalSearchData;
 import xyh.searchlite.user.entity.User;
 import xyh.searchlite.user.mapper.UserMapper;
@@ -103,5 +104,10 @@ public class UserServiceImpl implements UserService {
         personalSearchData.setRankPercentage(result);
 
         return  personalSearchData;
+    }
+
+    @Override
+    public void feedback(FeedbackMsg message) {
+        userMapper.insertFeedback(message);
     }
 }

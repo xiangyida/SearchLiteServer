@@ -1,5 +1,6 @@
 package xyh.searchlite.user.service;
 
+import xyh.searchlite.user.entity.FeedbackMsg;
 import xyh.searchlite.user.entity.PersonalSearchData;
 import xyh.searchlite.user.entity.SearchRecords;
 
@@ -48,4 +49,9 @@ public interface UserService {
      */
     PersonalSearchData getPersonalSearchData(String openId);
 
+    /**
+     * 用户反馈
+     * @param message feedback
+     */
+    void feedback(FeedbackMsg message);
 }

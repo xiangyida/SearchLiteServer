@@ -31,4 +31,6 @@ public interface UserMapper {
     Integer getPersonalTodaySearchRank(@Param("openId") String openId);
     //得到今天的搜题总人数
     Integer getTodaySearchPeople();
+    //插入用户反馈
+    void insertFeedback(@Param("message") FeedbackMsg message);
 }
