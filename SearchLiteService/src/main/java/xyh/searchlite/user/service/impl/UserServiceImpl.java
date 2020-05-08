@@ -78,15 +78,30 @@ public class UserServiceImpl implements UserService {
     @Override
     public PersonalSearchData getPersonalSearchData(String openId) {
         PersonalSearchData personalSearchData = new PersonalSearchData();
-        personalSearchData.setTodaySearchCount(userMapper.getPersonalTodaySearchCount(openId));
-        personalSearchData.setTotalSearchCount(userMapper.getPersonalTotalSearchCount(openId));
+        // 当天个人搜题数量
+        Integer todaySearchCount = userMapper.getPersonalTodaySearchCount(openId);
+        todaySearchCount = todaySearchCount == null ? 0 :todaySearchCount;
+        personalSearchData.setTodaySearchCount(todaySearchCount);
+
+        // 个人搜题总量
+        Integer totalSearchCount = userMapper.getPersonalTotalSearchCount(openId);
+        totalSearchCount = totalSearchCount == null ? 0 : totalSearchCount;
+        personalSearchData.setTotalSearchCount(totalSearchCount);
+
+        // 当天的搜题数量排名
         Integer todayRank = userMapper.getPersonalTodaySearchRank(openId);
-        Integer todayPeople = userMapper.getTodaySearchPeople();
+        todayRank = todayRank == null ? 0 : todayRank;
         personalSearchData.setTodayRank(todayRank);
+
+        // 计算排名比例
+        Integer todayPeople = userMapper.getTodaySearchPeople();
+        todayPeople = todayPeople == null ? 0 : todayPeople;
         NumberFormat numberFormat = NumberFormat.getInstance();
         numberFormat.setMaximumFractionDigits(2);
         String result = numberFormat.format((float) todayRank / (float) todayPeople * 100);
+        result = result.equals("0") ? "100" : result;
         personalSearchData.setRankPercentage(result);
+
         return  personalSearchData;
     }
 }
