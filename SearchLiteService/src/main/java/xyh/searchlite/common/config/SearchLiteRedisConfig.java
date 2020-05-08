@@ -27,9 +27,7 @@ public class SearchLiteRedisConfig {
         RedisTemplate<String,String>template=new RedisTemplate<>();
         //关联
         template.setConnectionFactory(factory);
-        //设置key的序列化器
-        template.setKeySerializer(new StringRedisSerializer());
-        template.setValueSerializer(new StringRedisSerializer());
+        template.setDefaultSerializer(new StringRedisSerializer());
         return template;
     }
 }
