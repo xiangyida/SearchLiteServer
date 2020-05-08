@@ -1,9 +1,28 @@
+create table feedback
+(
+    id      int auto_increment
+        primary key,
+    problem varchar(255)                       null,
+    contact varchar(255)                       null,
+    time    datetime default CURRENT_TIMESTAMP null
+);
+
+INSERT INTO search_lite.feedback (id, problem, contact, time) VALUES (1, '1', '1', '2020-05-08 11:30:23');
+INSERT INTO search_lite.feedback (id, problem, contact, time) VALUES (2, '1', '1', '2020-05-08 11:43:45');
+INSERT INTO search_lite.feedback (id, problem, contact, time) VALUES (3, '1', '1', '2020-05-08 11:49:59');
+INSERT INTO search_lite.feedback (id, problem, contact, time) VALUES (4, '', '', '2020-05-08 11:53:50');
+INSERT INTO search_lite.feedback (id, problem, contact, time) VALUES (5, '', '', '2020-05-08 11:54:18');
+INSERT INTO search_lite.feedback (id, problem, contact, time) VALUES (6, '', '', '2020-05-08 15:14:39');
+INSERT INTO search_lite.feedback (id, problem, contact, time) VALUES (7, '', '', '2020-05-08 15:18:04');
+INSERT INTO search_lite.feedback (id, problem, contact, time) VALUES (8, '', '', '2020-05-08 15:18:40');
+INSERT INTO search_lite.feedback (id, problem, contact, time) VALUES (9, '', '', '2020-05-08 15:19:56');
+INSERT INTO search_lite.feedback (id, problem, contact, time) VALUES (10, '', '', '2020-05-08 15:20:12');
 create table login_records
 (
     id      bigint auto_increment
         primary key,
-    open_id varchar(255)                        null,
-    time    timestamp default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP
+    open_id varchar(255)                       null,
+    time    datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP
 )
     charset = utf8;
 
@@ -11,16 +30,189 @@ INSERT INTO search_lite.login_records (id, open_id, time) VALUES (1, 'ojfS55RHS0
 INSERT INTO search_lite.login_records (id, open_id, time) VALUES (2, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 19:49:21');
 INSERT INTO search_lite.login_records (id, open_id, time) VALUES (3, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 20:51:02');
 INSERT INTO search_lite.login_records (id, open_id, time) VALUES (4, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 20:54:40');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (5, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:05:15');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (6, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:20:47');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (7, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:21:04');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (8, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:29:14');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (9, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:37:04');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (10, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:37:30');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (11, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:37:54');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (12, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:39:52');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (13, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:40:30');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (14, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:40:50');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (15, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:44:35');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (16, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:49:52');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (17, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:49:52');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (18, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:50:03');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (19, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:52:46');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (20, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-06 21:53:37');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (21, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 01:43:25');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (22, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 01:45:42');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (23, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 02:05:35');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (24, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 02:07:31');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (25, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 02:08:40');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (26, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 02:09:40');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (27, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 02:11:18');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (28, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 02:13:33');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (29, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 02:14:36');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (30, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 02:15:54');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (31, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 02:16:34');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (32, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 02:27:21');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (33, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 02:28:02');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (34, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 02:31:14');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (35, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:26:40');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (36, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:33:13');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (37, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:34:33');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (38, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:36:32');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (39, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:38:18');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (40, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:38:35');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (41, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:39:01');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (42, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:40:38');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (43, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:41:03');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (44, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:42:02');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (45, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:43:02');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (46, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:47:18');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (47, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:49:31');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (48, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:50:20');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (49, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:53:41');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (50, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:56:17');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (51, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:56:39');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (52, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:57:10');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (53, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:57:26');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (54, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:58:00');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (55, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:59:05');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (56, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 15:59:35');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (57, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 16:01:06');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (58, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 16:01:48');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (59, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 16:02:13');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (60, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 16:02:57');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (61, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 16:03:04');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (62, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 16:04:59');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (63, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 16:05:45');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (64, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 16:07:03');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (65, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 16:08:52');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (66, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 16:09:02');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (67, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 16:09:23');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (68, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 20:48:52');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (69, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 20:52:33');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (70, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 20:53:37');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (71, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 20:55:11');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (72, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 21:08:14');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (73, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 21:08:38');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (74, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 21:08:46');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (75, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 21:09:10');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (76, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 21:09:22');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (77, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-07 21:09:39');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (78, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 09:36:02');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (79, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 09:59:30');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (80, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:03:52');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (81, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:14:08');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (82, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:14:54');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (83, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:16:27');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (84, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:18:50');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (85, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:49:44');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (86, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:51:10');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (87, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:52:23');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (88, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:53:08');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (89, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:56:45');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (90, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:57:15');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (91, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:57:36');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (92, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:58:31');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (93, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:58:52');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (94, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 10:59:37');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (95, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:00:16');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (96, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:00:43');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (97, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:08:35');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (98, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:11:45');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (99, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:11:52');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (100, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:12:30');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (101, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:12:58');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (102, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:17:24');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (103, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:30:20');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (104, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:43:42');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (105, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:44:20');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (106, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:44:36');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (107, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:44:37');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (108, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:44:50');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (109, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:48:24');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (110, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:48:28');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (111, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:49:49');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (112, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:51:28');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (113, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:53:36');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (114, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:54:10');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (115, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:54:37');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (116, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 11:56:30');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (117, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 14:46:27');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (118, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 14:47:12');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (119, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:03:45');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (120, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:03:59');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (121, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:07:20');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (122, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:07:25');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (123, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:08:56');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (124, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:10:57');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (125, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:13:47');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (126, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:13:54');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (127, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:17:54');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (128, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:18:34');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (129, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:19:48');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (130, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:36:24');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (131, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:36:40');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (132, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:38:27');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (133, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:40:20');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (134, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:40:35');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (135, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:41:53');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (136, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:42:06');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (137, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:49:58');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (138, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:50:08');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (139, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:53:58');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (140, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:54:14');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (141, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:55:38');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (142, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:55:55');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (143, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:58:04');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (144, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 15:58:19');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (145, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:03:36');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (146, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:04:02');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (147, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:06:23');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (148, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:06:43');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (149, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:11:08');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (150, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:11:20');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (151, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:13:51');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (152, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:21:17');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (153, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:21:33');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (154, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:31:30');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (155, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:32:18');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (156, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:32:31');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (157, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:35:58');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (158, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:36:08');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (159, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:38:03');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (160, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:40:30');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (161, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:40:36');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (162, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:42:50');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (163, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:43:04');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (164, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:47:19');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (165, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:47:27');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (166, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:48:08');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (167, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:48:14');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (168, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:50:59');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (169, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:52:25');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (170, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:54:12');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (171, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:54:20');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (172, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:58:13');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (173, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:58:18');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (174, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:59:42');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (175, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 16:59:54');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (176, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 17:10:10');
+INSERT INTO search_lite.login_records (id, open_id, time) VALUES (177, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '2020-05-08 17:20:19');
 create table problem
 (
     id                   int auto_increment
         primary key,
-    title                varchar(255)                        null,
-    knowledge_point      varchar(255)                        null,
-    publisher            varchar(255)                        null,
-    problem_picture_name varchar(255)                        null,
-    answer_picture_name  varchar(50)                         null,
-    add_time             timestamp default CURRENT_TIMESTAMP null
+    title                varchar(255)                       null,
+    knowledge_point      varchar(255)                       null,
+    publisher            varchar(255)                       null,
+    problem_picture_name varchar(255)                       null,
+    answer_picture_name  varchar(50)                        null,
+    add_time             datetime default CURRENT_TIMESTAMP null
 )
     charset = utf8;
 
@@ -1387,19 +1579,43 @@ create table search_records
 (
     id         bigint auto_increment
         primary key,
-    open_id    varchar(255)                        null,
-    problem_id varchar(255)                        not null,
-    view_time  timestamp default CURRENT_TIMESTAMP null
+    open_id    varchar(255)                       null,
+    problem_id varchar(255)                       not null,
+    time       datetime default CURRENT_TIMESTAMP null
 )
     charset = utf8;
 
-
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (1, 'xiangyida', '1', '2020-05-06 21:03:53');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (5, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1', '2020-05-06 21:39:58');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (6, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1', '2020-05-06 21:40:37');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (7, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1', '2020-05-06 21:40:57');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (8, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1', '2020-05-07 01:45:51');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (9, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1', '2020-05-07 01:49:36');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (10, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1', '2020-05-07 02:06:15');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (14, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1', '2020-05-07 16:10:34');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (15, 'xyd', '1', '2020-05-07 17:11:38');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (16, 'hh', '1', '2020-05-07 17:11:38');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (17, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1', '2020-05-07 20:53:49');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (18, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1', '2020-05-08 11:55:55');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (19, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1', '2020-05-08 11:56:59');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (20, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '708', '2020-05-08 11:57:06');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (21, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1', '2020-05-08 11:57:26');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (22, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1', '2020-05-08 14:41:09');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (23, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1', '2020-05-08 15:14:01');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (24, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '708', '2020-05-08 15:14:03');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (25, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '707', '2020-05-08 15:14:04');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (26, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '179', '2020-05-08 15:14:08');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (27, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '706', '2020-05-08 15:14:10');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (28, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '795', '2020-05-08 16:58:36');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (29, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '1203', '2020-05-08 16:58:39');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (30, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '249', '2020-05-08 16:58:40');
+INSERT INTO search_lite.search_records (id, open_id, problem_id, time) VALUES (31, 'ojfS55RHS07afOMbtXfHHXlEIhC8', '845', '2020-05-08 17:00:13');
 create table user
 (
     id      bigint auto_increment
         primary key,
-    open_id varchar(255)                        null,
-    time    timestamp default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP,
+    open_id varchar(255)                       null,
+    time    datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP,
     constraint user_open_id_uindex
         unique (open_id)
 )
@@ -1440,3 +1656,204 @@ INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUE
 INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:37:20.000', 28, '2020-05-05 15:37:25');
 INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:37:25.000', 25, '2020-05-05 15:37:31');
 INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:37:30.000', 23, '2020-05-05 15:37:35');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-03 22:42:55.000', 1, '2020-05-08 17:04:13');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-03 22:43:25.000', 1, '2020-05-08 17:04:13');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-03 22:43:30.000', 1, '2020-05-08 17:04:13');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-03 22:44:40.000', 1, '2020-05-08 17:04:13');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-03 22:44:45.000', 1, '2020-05-08 17:04:13');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-03 22:45:15.000', 1, '2020-05-08 17:04:14');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-03 22:45:20.000', 9, '2020-05-08 17:04:14');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-03 22:46:55.000', 6, '2020-05-08 17:04:14');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-03 22:47:00.000', 4, '2020-05-08 17:04:14');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-04 01:12:55.000', 11, '2020-05-08 17:04:14');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-04 01:14:05.000', 12, '2020-05-08 17:04:14');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-04 01:14:10.000', 3, '2020-05-08 17:04:15');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-04 01:14:15.000', 2, '2020-05-08 17:04:15');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-04 01:14:20.000', 13, '2020-05-08 17:04:15');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:09:55.000', 1, '2020-05-08 17:04:15');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:10:05.000', 1, '2020-05-08 17:04:15');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:10:10.000', 25, '2020-05-08 17:04:15');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:10:15.000', 19, '2020-05-08 17:04:15');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:10:20.000', 16, '2020-05-08 17:04:16');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:20:40.000', 15, '2020-05-08 17:04:16');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:21:35.000', 22, '2020-05-08 17:04:16');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 10:21:40.000', 3, '2020-05-08 17:04:16');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:01:00.000', 3, '2020-05-08 17:04:16');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:01:05.000', 11, '2020-05-08 17:04:16');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:01:50.000', 22, '2020-05-08 17:04:17');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:01:55.000', 10, '2020-05-08 17:04:17');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:02:50.000', 5, '2020-05-08 17:04:17');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:02:55.000', 1, '2020-05-08 17:04:17');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:12:10.000', 22, '2020-05-08 17:04:17');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:12:15.000', 6, '2020-05-08 17:04:17');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:12:40.000', 5, '2020-05-08 17:04:18');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:36:50.000', 1, '2020-05-08 17:04:18');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:37:15.000', 8, '2020-05-08 17:04:18');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:37:20.000', 28, '2020-05-08 17:04:18');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:37:25.000', 25, '2020-05-08 17:04:18');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:37:30.000', 23, '2020-05-08 17:04:18');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 15:37:35.000', 9, '2020-05-08 17:04:18');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 20:39:20.000', 1, '2020-05-08 17:04:19');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 20:42:05.000', 1, '2020-05-08 17:04:19');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 20:53:30.000', 1, '2020-05-08 17:04:19');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 20:53:35.000', 1, '2020-05-08 17:04:19');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 20:54:30.000', 1, '2020-05-08 17:04:19');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 20:55:05.000', 1, '2020-05-08 17:04:19');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 20:57:40.000', 1, '2020-05-08 17:04:19');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 20:59:00.000', 1, '2020-05-08 17:04:20');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 20:59:15.000', 1, '2020-05-08 17:04:20');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:01:45.000', 1, '2020-05-08 17:04:20');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:02:20.000', 1, '2020-05-08 17:04:20');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:03:00.000', 2, '2020-05-08 17:04:20');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:03:35.000', 2, '2020-05-08 17:04:20');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:04:25.000', 1, '2020-05-08 17:04:20');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:05:15.000', 1, '2020-05-08 17:04:21');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:06:10.000', 1, '2020-05-08 17:04:21');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:07:25.000', 1, '2020-05-08 17:04:21');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:09:00.000', 1, '2020-05-08 17:04:21');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:09:40.000', 1, '2020-05-08 17:04:21');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:15:35.000', 1, '2020-05-08 17:04:21');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:17:20.000', 1, '2020-05-08 17:04:21');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:17:40.000', 1, '2020-05-08 17:04:22');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:17:45.000', 1, '2020-05-08 17:04:22');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:18:15.000', 1, '2020-05-08 17:04:22');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:18:55.000', 1, '2020-05-08 17:04:22');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:19:20.000', 1, '2020-05-08 17:04:22');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:22:15.000', 1, '2020-05-08 17:04:23');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:23:55.000', 1, '2020-05-08 17:04:23');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:24:15.000', 1, '2020-05-08 17:04:23');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:25:55.000', 1, '2020-05-08 17:04:23');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:27:15.000', 1, '2020-05-08 17:04:23');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:27:35.000', 1, '2020-05-08 17:04:23');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:29:35.000', 1, '2020-05-08 17:04:24');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:31:05.000', 2, '2020-05-08 17:04:24');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:31:35.000', 1, '2020-05-08 17:04:24');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:35:10.000', 1, '2020-05-08 17:04:24');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:37:30.000', 1, '2020-05-08 17:04:24');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:39:15.000', 1, '2020-05-08 17:04:24');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:39:55.000', 1, '2020-05-08 17:04:25');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:41:35.000', 1, '2020-05-08 17:04:25');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:41:50.000', 1, '2020-05-08 17:04:26');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:42:20.000', 1, '2020-05-08 17:04:26');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:43:30.000', 1, '2020-05-08 17:04:26');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:44:45.000', 4, '2020-05-08 17:04:26');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:44:50.000', 4, '2020-05-08 17:04:27');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:47:15.000', 1, '2020-05-08 17:04:27');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:47:40.000', 3, '2020-05-08 17:04:27');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:47:55.000', 5, '2020-05-08 17:04:27');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 21:48:00.000', 2, '2020-05-08 17:04:27');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 22:11:00.000', 1, '2020-05-08 17:04:27');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 22:14:40.000', 1, '2020-05-08 17:04:28');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:16:10.000', 1, '2020-05-08 17:04:28');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:16:15.000', 3, '2020-05-08 17:04:28');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:16:20.000', 4, '2020-05-08 17:04:28');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:17:15.000', 1, '2020-05-08 17:04:28');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:17:30.000', 3, '2020-05-08 17:04:28');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:18:00.000', 1, '2020-05-08 17:04:28');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:21:10.000', 1, '2020-05-08 17:04:29');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:23:05.000', 1, '2020-05-08 17:04:29');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:24:20.000', 1, '2020-05-08 17:04:29');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:29:35.000', 1, '2020-05-08 17:04:29');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:33:40.000', 1, '2020-05-08 17:04:29');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:35:55.000', 1, '2020-05-08 17:04:29');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:37:10.000', 1, '2020-05-08 17:04:30');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:38:05.000', 1, '2020-05-08 17:04:30');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:38:55.000', 1, '2020-05-08 17:04:30');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:41:10.000', 1, '2020-05-08 17:04:30');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:44:50.000', 1, '2020-05-08 17:04:30');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:45:20.000', 1, '2020-05-08 17:04:30');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:52:20.000', 1, '2020-05-08 17:04:30');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:53:35.000', 2, '2020-05-08 17:04:31');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:54:10.000', 1, '2020-05-08 17:04:31');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:56:10.000', 1, '2020-05-08 17:04:31');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:56:35.000', 1, '2020-05-08 17:04:31');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:57:10.000', 1, '2020-05-08 17:04:31');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:57:50.000', 1, '2020-05-08 17:04:31');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:58:05.000', 1, '2020-05-08 17:04:31');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:58:20.000', 1, '2020-05-08 17:04:32');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:58:55.000', 1, '2020-05-08 17:04:32');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-05 23:59:15.000', 1, '2020-05-08 17:04:32');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 00:00:15.000', 1, '2020-05-08 17:04:32');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 00:02:10.000', 1, '2020-05-08 17:04:32');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 00:02:30.000', 1, '2020-05-08 17:04:32');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 00:04:50.000', 1, '2020-05-08 17:04:32');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 00:05:55.000', 1, '2020-05-08 17:04:33');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 00:07:40.000', 1, '2020-05-08 17:04:33');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 00:15:10.000', 1, '2020-05-08 17:04:33');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 00:22:55.000', 1, '2020-05-08 17:04:34');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 00:28:30.000', 1, '2020-05-08 17:04:34');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 00:29:00.000', 1, '2020-05-08 17:04:35');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 00:34:05.000', 1, '2020-05-08 17:04:35');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 01:35:10.000', 1, '2020-05-08 17:04:35');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 01:36:10.000', 1, '2020-05-08 17:04:35');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 01:36:30.000', 1, '2020-05-08 17:04:35');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 01:36:45.000', 1, '2020-05-08 17:04:35');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 01:37:45.000', 1, '2020-05-08 17:04:35');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 01:45:25.000', 1, '2020-05-08 17:04:36');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 01:45:40.000', 1, '2020-05-08 17:04:36');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 01:47:00.000', 1, '2020-05-08 17:04:36');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 01:48:00.000', 1, '2020-05-08 17:04:36');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 01:50:05.000', 1, '2020-05-08 17:04:36');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 01:50:15.000', 1, '2020-05-08 17:04:36');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 01:55:10.000', 1, '2020-05-08 17:04:37');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 01:58:45.000', 1, '2020-05-08 17:04:37');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:06:55.000', 1, '2020-05-08 17:04:37');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:08:10.000', 1, '2020-05-08 17:04:37');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:17:50.000', 1, '2020-05-08 17:04:37');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:20:10.000', 1, '2020-05-08 17:04:37');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:32:25.000', 1, '2020-05-08 17:04:38');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:33:25.000', 1, '2020-05-08 17:04:38');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:34:25.000', 1, '2020-05-08 17:04:38');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:38:15.000', 1, '2020-05-08 17:04:38');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:38:55.000', 1, '2020-05-08 17:04:38');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:40:05.000', 1, '2020-05-08 17:04:38');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:41:00.000', 1, '2020-05-08 17:04:38');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:41:25.000', 1, '2020-05-08 17:04:39');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:41:50.000', 1, '2020-05-08 17:04:39');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:42:15.000', 1, '2020-05-08 17:04:39');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:47:45.000', 1, '2020-05-08 17:04:39');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:49:05.000', 1, '2020-05-08 17:04:39');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:49:20.000', 1, '2020-05-08 17:04:39');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:50:15.000', 1, '2020-05-08 17:04:40');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:52:00.000', 1, '2020-05-08 17:04:40');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:54:40.000', 1, '2020-05-08 17:04:40');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:55:55.000', 1, '2020-05-08 17:04:40');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:56:45.000', 1, '2020-05-08 17:04:40');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:57:20.000', 1, '2020-05-08 17:04:40');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 02:59:50.000', 1, '2020-05-08 17:04:41');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 03:00:20.000', 1, '2020-05-08 17:04:41');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 03:01:35.000', 1, '2020-05-08 17:04:41');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 03:09:00.000', 1, '2020-05-08 17:04:41');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 13:55:25.000', 1, '2020-05-08 17:04:41');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 21:27:45.000', 1, '2020-05-08 17:04:41');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 21:29:35.000', 1, '2020-05-08 17:04:41');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 21:34:15.000', 1, '2020-05-08 17:04:42');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 21:37:30.000', 1, '2020-05-08 17:04:42');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 21:37:55.000', 1, '2020-05-08 17:04:42');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 21:39:55.000', 1, '2020-05-08 17:04:42');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 21:40:35.000', 1, '2020-05-08 17:04:42');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-06 21:40:50.000', 1, '2020-05-08 17:04:42');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-07 01:45:45.000', 1, '2020-05-08 17:04:42');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-07 01:49:30.000', 1, '2020-05-08 17:04:43');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-07 02:05:45.000', 1, '2020-05-08 17:04:43');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-07 16:10:30.000', 1, '2020-05-08 17:04:43');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-07 20:53:45.000', 1, '2020-05-08 17:04:43');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 11:55:10.000', 1, '2020-05-08 17:04:43');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 11:55:45.000', 1, '2020-05-08 17:04:43');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 11:56:45.000', 1, '2020-05-08 17:04:44');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 14:41:05.000', 1, '2020-05-08 17:04:44');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 15:04:20.000', 1, '2020-05-08 17:04:44');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 15:04:40.000', 1, '2020-05-08 17:04:44');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 15:04:45.000', 5, '2020-05-08 17:04:44');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 15:07:30.000', 1, '2020-05-08 17:04:44');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 15:07:45.000', 2, '2020-05-08 17:04:45');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 15:07:50.000', 1, '2020-05-08 17:04:45');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 15:08:10.000', 3, '2020-05-08 17:04:45');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 15:09:00.000', 3, '2020-05-08 17:04:45');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 15:11:00.000', 4, '2020-05-08 17:04:45');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 15:11:05.000', 3, '2020-05-08 17:04:45');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 15:12:20.000', 1, '2020-05-08 17:04:45');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 15:12:30.000', 1, '2020-05-08 17:04:46');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 15:13:55.000', 1, '2020-05-08 17:04:46');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 16:13:50.000', 1, '2020-05-08 17:04:46');
+INSERT INTO search_lite.user_search_frequency (cnt_time, cnt, create_date) VALUES ('2020-05-08 16:51:30.000', 1, '2020-05-08 17:04:46');
