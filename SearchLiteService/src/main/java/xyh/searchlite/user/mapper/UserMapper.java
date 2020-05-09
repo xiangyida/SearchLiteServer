@@ -2,6 +2,7 @@ package xyh.searchlite.user.mapper;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
+import xyh.searchlite.search.entity.Problem;
 import xyh.searchlite.user.entity.*;
 
 
@@ -33,4 +34,6 @@ public interface UserMapper {
     Integer getTodaySearchPeople();
     //插入用户反馈
     void insertFeedback(@Param("message") FeedbackMsg message);
+    //题目推送
+    List<Problem> problemPush(String openId);
 }

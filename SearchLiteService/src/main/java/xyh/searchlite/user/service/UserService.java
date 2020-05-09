@@ -1,5 +1,6 @@
 package xyh.searchlite.user.service;
 
+import xyh.searchlite.search.entity.Problem;
 import xyh.searchlite.user.entity.FeedbackMsg;
 import xyh.searchlite.user.entity.PersonalSearchData;
 import xyh.searchlite.user.entity.SearchRecords;
@@ -54,4 +55,11 @@ public interface UserService {
      * @param message feedback
      */
     void feedback(FeedbackMsg message);
+
+    /**
+     * 题目推送
+     * @param openId
+     * @return problem
+     */
+    List<Problem> problemPush(String openId);
 }

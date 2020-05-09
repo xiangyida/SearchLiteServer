@@ -8,6 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SetOperations;
 import org.springframework.stereotype.Service;
 import xyh.searchlite.common.utils.HttpUtil;
+import xyh.searchlite.search.entity.Problem;
 import xyh.searchlite.user.entity.FeedbackMsg;
 import xyh.searchlite.user.entity.PersonalSearchData;
 import xyh.searchlite.user.entity.User;
@@ -109,5 +110,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void feedback(FeedbackMsg message) {
         userMapper.insertFeedback(message);
+    }
+
+    @Override
+    public List<Problem> problemPush(String openId) {
+        return userMapper.problemPush(openId);
     }
 }

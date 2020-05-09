@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import xyh.searchlite.common.result.ApiResult;
 import xyh.searchlite.common.result.ResultUtil;
+import xyh.searchlite.search.entity.Problem;
 import xyh.searchlite.user.entity.FeedbackMsg;
 import xyh.searchlite.user.entity.LoginResult;
 import xyh.searchlite.user.entity.PersonalSearchData;
@@ -72,6 +73,10 @@ public class UserController {
         return ResultUtil.success();
     }
 
+    @GetMapping("/push/{openId}")
+    public ApiResult<List<Problem>> problemPush(@PathVariable String openId){
+        return ResultUtil.success(userService.problemPush(openId));
+    }
 
 
 }

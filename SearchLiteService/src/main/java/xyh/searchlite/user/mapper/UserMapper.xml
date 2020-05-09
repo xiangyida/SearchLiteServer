@@ -54,4 +54,18 @@
     <select id="getTodaySearchPeople" resultType="java.lang.Integer">
         select count(distinct(open_id)) from search_records
     </select>
+    <select id="problemPush" resultType="xyh.searchlite.search.entity.Problem">
+        select * from problem  right join
+                      (select count(*) as cnt, p.knowledge_point
+                       from search_records s
+                                left join problem p on s.problem_id = p.id
+                       where s.open_id = #{openId}
+                       group by p.knowledge_point
+                       order by cnt desc limit 1) temp
+                      on  problem.knowledge_point = temp.knowledge_point
+        where problem.id not in
+              (select distinct(id) from search_records
+               where open_id = #{openId})
+        limit 5
+    </select>
 </mapper>
