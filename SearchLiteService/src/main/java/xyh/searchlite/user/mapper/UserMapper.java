@@ -35,5 +35,5 @@ public interface UserMapper {
     //插入用户反馈
     void insertFeedback(@Param("message") FeedbackMsg message);
     //题目推送
-    List<Problem> problemPush(String openId);
+    List<Problem> problemPush(@Param("openId") String openId);
 }

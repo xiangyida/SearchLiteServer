@@ -64,7 +64,7 @@
                        order by cnt desc limit 1) temp
                       on  problem.knowledge_point = temp.knowledge_point
         where problem.id not in
-              (select distinct(id) from search_records
+              (select distinct(problem_id) from search_records
                where open_id = #{openId})
         limit 5
     </select>
