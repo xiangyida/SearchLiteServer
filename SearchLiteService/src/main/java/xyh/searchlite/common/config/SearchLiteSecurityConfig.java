@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SearchLiteSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String MATCHERS_ADMIN = "/login";
+    private static final String MATCHERS_ADMIN = "/admin";
     private static final String USERNAME = "xiangyida";
     private static final String PASSWORD = "{noop}123456";
     private static final String ROLE_ADMIN = "ADMIN";

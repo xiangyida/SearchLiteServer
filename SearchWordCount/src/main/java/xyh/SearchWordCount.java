@@ -40,7 +40,7 @@ public class SearchWordCount {
 				.keyBy(0).sum(1);
 
 		//sink到redis
-		FlinkJedisPoolConfig config = new FlinkJedisPoolConfig.Builder().setHost("172.18.0.6").setPort(6379).build();
+		FlinkJedisPoolConfig config = new FlinkJedisPoolConfig.Builder().setHost("172.18.0.8").setPort(6379).build();
 		RedisSink<Tuple2<String,Integer>> redisSink = new RedisSink<>(config,new WordCountRedisMapper());
 		counts.addSink(redisSink);
 
