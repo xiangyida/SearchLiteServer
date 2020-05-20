@@ -99,3 +99,5 @@ services:
       - "jobmanager:jobmanager"
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
+  filebeat:
+    image: store/elastic/filebeat:6.8.9
