@@ -14,6 +14,7 @@ import xyh.searchlite.user.service.UserService;
 public class SearchLiteApplication implements CommandLineRunner {
 
     private UserService userService;
+
     @Autowired
     public SearchLiteApplication(UserService userService){
         this.userService=userService;

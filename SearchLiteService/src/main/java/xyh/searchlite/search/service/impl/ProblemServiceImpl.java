@@ -19,6 +19,7 @@ import xyh.searchlite.search.entity.Problem;
 import xyh.searchlite.search.mapper.SearchMapper;
 import xyh.searchlite.search.service.ProblemRepository;
 import xyh.searchlite.search.service.ProblemService;
+
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +47,7 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     @Override
-    public List<Problem> searchProblemByString(SearchTypeEnum typeEnum,String title) {
+    public List<Problem> searchProblemByString(SearchTypeEnum typeEnum, String title) {
         QueryBuilder queryBuilder = new MatchQueryBuilder(typeEnum.getType(), title);
         Page<Problem> page = problemRepository.search(queryBuilder, PageRequest.of(0, 5));
         List<Problem> list = new ArrayList<>();
@@ -56,7 +57,7 @@ public class ProblemServiceImpl implements ProblemService {
 
     @Override
     public List<Problem> searchProblemByPicture(byte[] imageData) {
-        return searchProblemByString(SearchTypeEnum.TITLE,getString(ocr(imageData)));
+        return searchProblemByString(SearchTypeEnum.TITLE, getString(ocr(imageData)));
     }
 
     @Override
@@ -98,7 +99,7 @@ public class ProblemServiceImpl implements ProblemService {
     private String getString(String json) {
         JSONObject jsonObject = new JSONObject(json);
         JSONArray jsonArray = jsonObject.getJSONArray("words_result");
-        if(jsonArray.length()==0)return "";
+        if (jsonArray.length() == 0) return "";
         String str = (String) jsonArray.getJSONObject(0).get("words");
         log.info("get string from json------> " + str);
         return str;
@@ -125,7 +126,7 @@ public class ProblemServiceImpl implements ProblemService {
     private String getAccessToken() {
         String accessToken = redisTemplate.opsForValue().get("ACCESS_TOKEN");
         //过期后重新获取
-        if (accessToken == null) return this.setAccessToken();
+        if (null == accessToken) return this.setAccessToken();
         return accessToken;
     }
 }

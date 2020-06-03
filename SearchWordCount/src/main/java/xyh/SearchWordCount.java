@@ -23,24 +23,31 @@ import java.util.List;
 import java.util.Properties;
 
 public class SearchWordCount {
+
+	private static final String KAFKA_TOPIC_WORD_COUNT = "search_data";
+	private static final String REDIS_HOST = "172.18.0.7";
+	private static final Integer REDIS_PORT = 6379;
+
 	public static void main(String[] args) throws Exception {
 		final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 		Properties properties = new Properties();
 		properties.setProperty("bootstrap.servers", "kafka1:9094");
 		properties.setProperty("group.id", "group-flink-word_count");
 		FlinkKafkaConsumer<String> kafkaConsumer = new FlinkKafkaConsumer<>(
-				"search_data",
+				KAFKA_TOPIC_WORD_COUNT,
 				new SimpleStringSchema(),
 				properties);
 		kafkaConsumer.setStartFromEarliest();
 		DataStream<String> input = env.addSource(kafkaConsumer);
 
 		//词频统计
-		DataStream<Tuple2<String, Integer>> counts = input.flatMap(new WordAnalysis())
-				.keyBy(0).sum(1);
+		DataStream<Tuple2<String, Integer>> counts = input
+				.flatMap(new WordAnalysis())
+				.keyBy(0)
+				.sum(1);
 
 		//sink到redis
-		FlinkJedisPoolConfig config = new FlinkJedisPoolConfig.Builder().setHost("172.18.0.8").setPort(6379).build();
+		FlinkJedisPoolConfig config = new FlinkJedisPoolConfig.Builder().setHost(REDIS_HOST).setPort(REDIS_PORT).build();
 		RedisSink<Tuple2<String,Integer>> redisSink = new RedisSink<>(config,new WordCountRedisMapper());
 		counts.addSink(redisSink);
 
