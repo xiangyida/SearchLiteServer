@@ -3,15 +3,16 @@ services:
   redis:
     image: redis:latest
     container_name: redis-searchlite
-    hostname: redis_host
     ports:
       - 6379:6379
     command:
       redis-server
-  db:
+    networks:
+      searchlite_net:
+        ipv4_address: 172.12.35.2
+  mysql:
     image: mysql:5.7
     container_name: mysql-searchlite
-    hostname: mysql_host
     volumes:
       - /Users/xiangyida/docker/mysql/data:/var/lib/mysql
       - /Users/xiangyida/docker/mysql/config:/etc/mysql/conf.d
@@ -20,7 +21,10 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: 123456
-  search:
+    networks:
+      searchlite_net:
+        ipv4_address: 172.12.35.3
+  elasticsearch:
     image: elasticsearch:6.8.4
     container_name: elasticseaerch-searchlite
     volumes:
@@ -34,6 +38,9 @@ services:
     ports:
       - 9200:9200
       - 9300:9300
+    networks:
+      searchlite_net:
+        ipv4_address: 172.12.35.4
   kibana:
     image: kibana:6.8.4
     container_name: kibana-searchlite
@@ -41,9 +48,12 @@ services:
     environment:
       - ELASTICSEARCH_URL=http://172.12.35.2:9200
     links:
-      - search:elasticseaerch-searchlite
+      - elasticsearch:elasticseaerch-searchlite
     ports:
       - 5601:5601
+    networks:
+      searchlite_net:
+        ipv4_address: 172.12.35.5
   zk1:
     image: zookeeper:3.4.14
     container_name: zk1-searchlite
@@ -57,6 +67,9 @@ services:
 #      - /etc/localtime:/etc/localtime
     ports:
       - 2181:2181
+    networks:
+      searchlite_net:
+        ipv4_address: 172.12.35.6
   kafka1:
     image: wurstmeister/kafka:2.12-2.2.0
     restart: always
@@ -76,6 +89,9 @@ services:
       - zk1
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      searchlite_net:
+        ipv4_address: 172.12.35.7
   jobmanager:
     image: flink:1.10.0-scala_2.11
     container_name: flink-jobmanager-searchlite
@@ -86,6 +102,9 @@ services:
     command: jobmanager
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    networks:
+      searchlite_net:
+        ipv4_address: 172.12.35.8
   taskmanager:
     image: flink:1.10.0-scala_2.11
     container_name: flink-taskmanager-searchlite
@@ -99,6 +118,9 @@ services:
       - "jobmanager:jobmanager"
     environment:
       - JOB_MANAGER_RPC_ADDRESS=jobmanager
+    networks:
+      searchlite_net:
+        ipv4_address: 172.12.35.9
 networks:
   searchlite_net:
     external: true
