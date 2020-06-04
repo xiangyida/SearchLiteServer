@@ -25,7 +25,7 @@ import java.util.Properties;
 public class SearchWordCount {
 
 	private static final String KAFKA_TOPIC_WORD_COUNT = "search_data";
-	private static final String REDIS_HOST = "172.18.0.7";
+	private static final String REDIS_HOST = "redis";
 	private static final Integer REDIS_PORT = 6379;
 
 	public static void main(String[] args) throws Exception {
