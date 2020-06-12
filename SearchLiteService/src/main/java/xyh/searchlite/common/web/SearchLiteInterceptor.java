@@ -29,6 +29,5 @@ public class SearchLiteInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         log.info("RequestTimeConsuming: "+(System.currentTimeMillis()-threadLocal.get())+" ms");
-
     }
 }
