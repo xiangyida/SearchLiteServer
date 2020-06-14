@@ -1,0 +1,12 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /Users/xiangyida/code/java/SearchLite/logs/info/*.log
+    - /Users/xiangyida/code/java/SearchLite/logs/debug/*.log
+    - /Users/xiangyida/code/java/SearchLite/logs/error/*.log
+    - /Users/xiangyida/code/java/SearchLite/logs/warn/*.log
+setup.kibana:
+  host: "localhost:5601"
+output.elasticsearch:
+  hosts: ["localhost:9200"]

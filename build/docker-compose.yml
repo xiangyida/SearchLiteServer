@@ -46,7 +46,7 @@ services:
     container_name: kibana-searchlite
     restart: always
     environment:
-      - ELASTICSEARCH_URL=http://172.12.35.2:9200
+      - ELASTICSEARCH_URL=http://172.12.35.4:9200
     links:
       - elasticsearch:elasticseaerch-searchlite
     ports:
